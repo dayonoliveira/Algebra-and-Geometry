@@ -230,8 +230,9 @@ class LinearAlgebra{
 
         c = new Matrix(a.rows, a.cols);
 
-        c = this.maiorPrimeiroPivo(a);
-        
+        if(!(a.cols == a.rows*2)){
+            c = this.maiorPrimeiroPivo(a);
+        }
 
         for(aux2; aux2 < c.rows; aux2++){
 
@@ -345,7 +346,7 @@ class LinearAlgebra{
         
     }
 
-    determinant(a){
+    det(a){
 
         if(!(a instanceof Matrix) && a instanceof Vector){
             throw new Error("Os parametros devem ser objetos da classe Matrix.");
@@ -365,8 +366,16 @@ class LinearAlgebra{
         return determinante;
     }
 
-    inverse(a){
+    inv(a){
+        let c = new Matrix(a.rows, a.cols);
+        let id = new Matrix(a.rows, a.cols);
+        let intm = new Matrix(a.rows, a.cols * 2);
+        let inv = new Matrix(a.rows, a.cols);
 
+        c = a;
+        id = this.solve(a);
+        
+        return c;
     }
 
 
