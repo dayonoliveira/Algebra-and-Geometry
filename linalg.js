@@ -221,14 +221,13 @@ class LinearAlgebra{
             throw new Error("Os parametros devem ser objetos da classe Matrix");
         }
         
-        let c;
+        let c = new Matrix(a.rows, a.cols);
         let k;
         let coordenadaPivo = 1;
         let aux2 = 1;
         let aux3 = 1;
-        let aux4 = 1;
 
-        c = new Matrix(a.rows, a.cols);
+        c = a;
 
         if(!(a.cols == a.rows*2)){
             c = this.maiorPrimeiroPivo(a);
@@ -283,7 +282,6 @@ class LinearAlgebra{
         let coordenadaPivo = c.rows;
         let aux2 = c.rows;
         let aux3 = c.rows;
-        let aux4 = 1;
 
         c = this.gauss(a);
 
@@ -366,6 +364,83 @@ class LinearAlgebra{
         return determinante;
     }
 
+    gaussJordanInv(a){
+        
+        /*
+            Este método serve apenas para resolução de matrizes inversas.
+
+            Obs.: Este método é provisório, caso seja encontrada uma forma
+            melhor de inverter matrizes, será aderida e esse método será
+            será excluído.
+        */
+
+        if(!(a instanceof Matrix)){
+            throw new Error("Os parametros devem ser objetos da classe Matrix");
+        }
+/*
+        if(a.cols != a.rows){
+            throw new Error("A matriz deve ser quadrada (rows == cols) ou a matriz deve ter cols == rows * 2.");
+        }
+*/
+        let c = new Matrix(a.rows, a.cols);
+        let k;
+        let coordenadaPivo = c.rows;
+        let aux2 = c.rows;
+        let aux3 = c.rows;
+
+        c = this.gauss(a);
+
+
+        for(aux2; aux2 > 1; aux2--){
+
+            if(c.get(coordenadaPivo, coordenadaPivo) == 0){
+                c = this.trocaLinha(c);
+            }
+
+            if(c.get(aux2 - 1, coordenadaPivo) != 0){
+
+                if(aux2 - 1 == 1 && c.get(aux2 - 1, coordenadaPivo) != 0){
+                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                    
+                    for(let j = 1; j <= c.cols; j++){
+        
+                        c.set(aux2 - 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 - 1, j));
+        
+                    }
+
+                    coordenadaPivo--;
+                }else if(aux2 - 1 > 1 && c.get(aux2 - 1, coordenadaPivo) != 0){
+                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                    
+                    for(let j = 1; j <= c.cols; j++){
+        
+                        c.set(aux2 - 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 - 1, j));
+        
+                    }
+                }else if(aux2 - 1 == 1 && c.get(aux2 - 1, coordenadaPivo) == 0){
+                    coordenadaPivo--;
+                }
+
+            }
+            
+            if(coordenadaPivo < aux3){
+                aux3 = coordenadaPivo;
+                aux2 = coordenadaPivo + 1;
+            }
+        }
+
+        for(let i = 1; i <= c.rows; i++){
+            let k2 = 1 / c.get(i, i);
+            for(let j = 1; j <= c.cols; j++){
+            
+                c.set(i, j, k2 * c.get(i, j));
+
+            }
+        }
+
+        return c;
+    }
+
     inv(a){
         let c = new Matrix(a.rows, a.cols);
         let id = new Matrix(a.rows, a.cols);
@@ -373,9 +448,42 @@ class LinearAlgebra{
         let inv = new Matrix(a.rows, a.cols);
 
         c = a;
-        id = this.solve(a);
+        id = this.gaussJordanInv(a);
+
         
-        return c;
+        for(let i = 1; i <= c.rows; i++){
+
+            for(let j = 1; j <= intm.cols/2; j++){
+                intm.set(i, j, c.get(i, j));
+            }
+
+            let contador = 1;
+
+            for(let w = (intm.cols / 2) + 1; w <= intm.cols; w++){
+                
+                intm.set(i, w, id.get(i, contador));
+
+                contador++;
+            }
+
+        }
+
+        intm = this.gaussJordanInv(intm);
+
+        for(let i = 1; i <= c.rows; i++){
+
+            let contador = (intm.cols / 2) + 1;
+
+            for(let j = 1; j <= c.cols; j++){
+                inv.set(i, j, intm.get(i, contador));
+
+                contador++;
+            }
+        }
+        
+
+        
+        return inv;
     }
 
 
