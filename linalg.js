@@ -229,7 +229,7 @@ class LinearAlgebra{
 
         c = a;
 
-        if(!(a.cols == a.rows*2)){
+        if(a.cols > a.rows){
             c = this.maiorPrimeiroPivo(a);
         }
 
@@ -441,20 +441,25 @@ class LinearAlgebra{
         return c;
     }
 
-    inv(a){
+    inverse(a){
         let c = new Matrix(a.rows, a.cols);
         let id = new Matrix(a.rows, a.cols);
         let intm = new Matrix(a.rows, a.cols * 2);
         let inv = new Matrix(a.rows, a.cols);
 
-        c = a;
-        id = this.gaussJordanInv(a);
+        
+        for(let i = 1; i <= a.rows; i++){
+            for(let j = 1; j <= a.cols; j++){
+                c.set(i, j, a.get(i, j));
+            }
+        }
 
+        id = this.gaussJordanInv(c);
         
         for(let i = 1; i <= c.rows; i++){
 
             for(let j = 1; j <= intm.cols/2; j++){
-                intm.set(i, j, c.get(i, j));
+                intm.set(i, j, a.get(i, j));
             }
 
             let contador = 1;

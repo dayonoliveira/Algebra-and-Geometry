@@ -466,7 +466,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
-        let canonicalMatrix = new Matrix(3, 3, [1, kx, 0, ky, 1, 0, 0, 0, 1]);
+        let canonicalMatrix = new Matrix(3, 3, [1, ky, 0, kx, 1, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
             if(i == c.dim){
