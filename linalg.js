@@ -485,11 +485,7 @@ class LinearAlgebra{
                 contador++;
             }
         }
-        
-
-        
+         
         return inv;
     }
-
-
 }
