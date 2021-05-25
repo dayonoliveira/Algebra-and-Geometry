@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>
+    Trabalho AlgGeoComp
+</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="matrix.js"></script>
+    <script src="vector.js"></script>
+    <script src="linalg.js"></script>
+    <script src="transformation.js"></script>
+
+    <br>
+    
+    <div id="container">
+
+        <div>
+            <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
+        </div>
+
+        <div id="algebra">
+            
+            <label for="file">Abrir arquivo</label>
+            <input id="file" type="file">
+
+            <br>
+
+            <textarea id="textarea1" cols="30" rows="20"></textarea>
+        </div>
+ 
+    </div>
+
+    <script>
+        
+        function goToP5JS(){
+            window.location.href = "file:///C:/Users/dayon/OneDrive/Desktop/UNIFOR/Disciplinas/3%C2%BA%20Semestre/%C3%81lgebra%20e%20geometria%20computacional/C%C3%B3digos_Base/index.html"
+        }
+            
+    </script>
+
+    <script src="leitorDeArquivo.js"></script>
+</body>
+</html>
