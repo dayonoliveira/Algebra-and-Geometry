@@ -14,12 +14,32 @@ class Line{
         */
     }
 
-    rotate(){
+    rotate(angle){
+        let tr = new Transformations();
+        let aux1 = new Vector(2, [this.points[0].get(1), this.points[0].get(2)]);
+        let aux2 = new Vector(2, [this.points[1].get(1), this.points[1].get(2)]);
+        aux1 = tr.rotation2D(aux1, angle);
+        aux2 = tr.rotation2D(aux2, angle);
 
+        let vector1 = new Vector(aux1.rows, [aux1.elements[0], aux1.elements[1]]);
+        let vector2 = new Vector(aux2.rows, [aux2.elements[0], aux2.elements[1]]);
+
+        this.points[0] = vector1;
+        this.points[1] = vector2;
     }
 
-    translate(){
+    translate(x, y){
+        let tr = new Transformations();
+        let aux1 = new Vector(2, [this.points[0].get(1), this.points[0].get(2)]);
+        let aux2 = new Vector(2, [this.points[1].get(1), this.points[1].get(2)]);
+        aux1 = tr.translate2D(aux1, x, y);
+        aux2 = tr.translate2D(aux2, x, y);
 
+        let vector1 = new Vector(aux1.rows, [aux1.elements[0], aux1.elements[1]]);
+        let vector2 = new Vector(aux2.rows, [aux2.elements[0], aux2.elements[1]]);
+
+        this.points[0] = vector1;
+        this.points[1] = vector2;
     }
 
     draw(){
