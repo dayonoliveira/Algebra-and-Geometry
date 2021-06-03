@@ -52,3 +52,30 @@ class Line{
     }
 
 }
+
+class Rectangle{
+
+    constructor(x, y, w, h){
+        this.points = [
+            new Vector(2, [x, y]),
+            new Vector(2, [x + w, y]),
+            new Vector(2, [x + w, y + h]),
+            new Vector(2, [x, y + h])
+        ]
+    }
+
+    draw(){
+        noFill()
+        stroke(color(255));
+        beginShape();
+        vertex(this.points[0].get(1), this.points[0].get(2));
+        vertex(this.points[1].get(1), this.points[1].get(2));
+        vertex(this.points[2].get(1), this.points[2].get(2));
+        
+        vertex(this.points[0].get(1), this.points[0].get(2));
+        vertex(this.points[3].get(1), this.points[3].get(2));
+        vertex(this.points[2].get(1), this.points[3].get(2));
+        endShape();
+    }
+
+}
