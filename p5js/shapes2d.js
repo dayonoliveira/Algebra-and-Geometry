@@ -16,6 +16,24 @@ class Line{
 
     rotate(angle){
         let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.rotation2D(this.points[i], angle);
+        }
+        /* 
+        let newPointPosition;
+        let diferenceBetweenPositions = [];
+
+        for(let i = 0; i < this.points.length; i++){
+
+            newPointPosition = tr.rotation2D(this.points[i], angle);
+
+            for(let j = 1; j <= 2; j++){
+                diferenceBetweenPositions.push(newPointPosition.get(j) - this.points[i].get(j))
+                this.points[i].set(j, this.points[i].get(j) + diferenceBetweenPositions[j - 1]);
+            }
+        }
+
         let aux1 = new Vector(2, [this.points[0].get(1), this.points[0].get(2)]);
         let aux2 = new Vector(2, [this.points[1].get(1), this.points[1].get(2)]);
 
@@ -27,6 +45,7 @@ class Line{
 
         this.points[0] = vector1;
         this.points[1] = vector2;
+        */
     }
 
     translate(x, y){
@@ -68,6 +87,13 @@ class Rectangle{
 
     rotate(angle){
         let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.rotation2D(this.points[i], angle);
+        }
+        
+        /*
+        let tr = new Transformations();
         let aux1 = new Vector(2, [this.points[0].get(1), this.points[0].get(2)]);
         let aux2 = new Vector(2, [this.points[1].get(1), this.points[1].get(2)]);
         let aux3 = new Vector(2, [this.points[2].get(1), this.points[2].get(2)]);
@@ -87,6 +113,7 @@ class Rectangle{
         this.points[1] = vector2;
         this.points[2] = vector3;
         this.points[3] = vector4;
+        */
     }
 
     translate(x, y){
@@ -151,6 +178,18 @@ class Circle{
                 this.points.push(this.newPosition);
             }
         }
+    }
+
+    rotate(angle){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.rotation2D(this.points[i], angle);
+        }
+    }
+
+    translate(x, y){
+
     }
 
 
