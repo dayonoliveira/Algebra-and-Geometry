@@ -128,3 +128,37 @@ class Rectangle{
     }
 
 }
+
+class Circle{
+
+    constructor(x, y, r, t){
+        
+        if(t < 3){
+            throw new Error("The value 't' must be greater than or equal to 3.");
+        }else{
+            let tr = new Transformations();
+            this.angle = (360 / t);
+            this.actualPosition = 0;
+            this.points = [];
+            this.points[0] = new Vector(2, [x, y]);
+
+            for(let i = 1; i <= t; i++){
+                this.points[i] = new Vector(2, [x + r, y + r]);
+                this.actualPosition = tr.rotation2D(this.points[i]);
+            }
+        }
+    }
+
+
+    draw(){
+
+        beginShape();
+
+        vertex(this.points[0].get(1), this.points[0].get(2));
+        vertex(this.points[1].get(1), this.points[1].get(2));
+
+        
+        endShape();
+    }
+
+}
