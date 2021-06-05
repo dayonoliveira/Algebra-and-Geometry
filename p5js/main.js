@@ -10,9 +10,11 @@ function setup(){
 
 function draw(){
 
-    circle.draw();
+    //circle.draw();
 
-    circle.rotate(40)
+    //circle.rotate(40);
+
+    //circle.translate(60, 60);
     
     //rectangle.draw();
 
