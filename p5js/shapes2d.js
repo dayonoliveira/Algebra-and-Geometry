@@ -117,20 +117,79 @@ class Circle{
         }
     }
 
-
     draw(){
         let center = 0;
+        let next = 1;
 
         stroke(color(255));
+        noFill();
 
         beginShape();
 
         for(let i = 1; i <= this.triangleQuantity; i++){
-            vertex(this.points[center].get(1), this.points[center].get(2));
-            vertex(this.points[i].get(1), this.points[i].get(2));
+
+            if(!(next == this.triangleQuantity)){
+                vertex(this.points[center].get(1), this.points[center].get(2));
+                vertex(this.points[next].get(1), this.points[next].get(2));
+                vertex(this.points[next + 1].get(1), this.points[next + 1].get(2));
+                vertex(this.points[center].get(1), this.points[center].get(2));
+                next++;
+            }else{
+                vertex(this.points[center].get(1), this.points[center].get(2));
+                vertex(this.points[next].get(1), this.points[next].get(2));
+                vertex(this.points[1].get(1), this.points[1].get(2));
+            }
+
+            
         }
                 
         endShape();
+    }
+}
+
+class Triangle{
+
+    constructor(x1, y1, x2, y2, x3, y3){
+        
+        this.points = [
+            new Vector(2, [x1, y1]),
+            new Vector(2, [x2, y2]),
+            new Vector(2, [x3, y3])
+        ];
+
+           
+    }
+
+    rotate(angle){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.rotation2D(this.points[i], angle);
+        }
+    }
+
+    translate(x, y){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.translate2D(this.points[i], x, y);
+        }
+    }
+
+    draw(){
+
+        stroke(color(255));
+        noFill();
+
+        beginShape();
+
+        vertex(this.points[0].get(1), this.points[0].get(2));
+        vertex(this.points[1].get(1), this.points[1].get(2));
+        vertex(this.points[2].get(1), this.points[2].get(2));
+        vertex(this.points[0].get(1), this.points[0].get(2));
+
+        endShape();
+
     }
 
 }
