@@ -138,26 +138,34 @@ class Circle{
         }else{
             let tr = new Transformations();
             this.angle = (360 / t);
-            this.actualPosition = 0;
+            this.triangleQuantity = t;
+            this.newPosition = 0;
             this.points = [];
             this.points[0] = new Vector(2, [x, y]);
+            this.points[1] = new Vector(2, [x + r, y + r]);
+            this.newPosition = tr.rotation2D(this.points[1], this.angle);
+            this.points.push(this.newPosition);
 
-            for(let i = 1; i <= t; i++){
-                this.points[i] = new Vector(2, [x + r, y + r]);
-                this.actualPosition = tr.rotation2D(this.points[i]);
+            for(let i = 2; i < t; i++){
+                this.newPosition = tr.rotation2D(this.points[i], this.angle);
+                this.points.push(this.newPosition);
             }
         }
     }
 
 
     draw(){
+        let center = 0;
+
+        stroke(color(255));
 
         beginShape();
 
-        vertex(this.points[0].get(1), this.points[0].get(2));
-        vertex(this.points[1].get(1), this.points[1].get(2));
-
-        
+        for(let i = 1; i <= this.triangleQuantity; i++){
+            vertex(this.points[center].get(1), this.points[center].get(2));
+            vertex(this.points[i].get(1), this.points[i].get(2));
+        }
+                
         endShape();
     }
 

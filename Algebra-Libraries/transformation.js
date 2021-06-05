@@ -10,6 +10,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [1, 0, dx, 0, 1, dy, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -22,10 +23,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     translate3D(vector, dx, dy, dz){
@@ -38,6 +40,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [1, 0, 0, dx, 0, 1, 0, dy, 0, 0, 1, dz, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -50,10 +53,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     rotation2D(vector, angle){
@@ -68,6 +72,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [Math.cos(angle * Math.PI/180), -Math.sin(angle * Math.PI/180), 0, Math.sin(angle * Math.PI/180), Math.cos(angle * Math.PI/180), 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -80,10 +85,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     rotation3DX(vector, angle){
@@ -98,6 +104,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, Math.cos(angle * Math.PI/180), -Math.sin(angle * Math.PI/180), 0, 0, Math.sin(angle * Math.PI/180), Math.cos(angle * Math.PI/180), 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -110,10 +117,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     rotation3DY(vector, angle){
@@ -128,6 +136,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [Math.cos(angle * Math.PI/180), 0, Math.sin(angle * Math.PI/180), 0, 0, 1, 0, 0, -Math.sin(angle * Math.PI/180), 0, Math.cos(angle * Math.PI/180), 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -140,10 +149,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     rotation3DZ(vector, angle){
@@ -158,6 +168,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [Math.cos(angle * Math.PI/180), -Math.sin(angle * Math.PI/180), 0, 0, Math.sin(angle * Math.PI/180), Math.cos(angle * Math.PI/180), 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -170,10 +181,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     reflection2DX(vector){
@@ -186,6 +198,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [1, 0, 0, 0, -1, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -198,10 +211,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     reflection2DY(vector){
@@ -214,6 +228,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [-1, 0, 0, 0, 1, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -226,10 +241,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     reflection3DXY(vector){
@@ -242,6 +258,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -254,10 +271,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     reflection3DXZ(vector){
@@ -270,6 +288,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -282,10 +301,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     reflection3DYZ(vector){
@@ -298,6 +318,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -310,10 +331,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     projection2DX(vector){
@@ -326,6 +348,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [1, 0, 0, 0, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -338,10 +361,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     projection2DY(vector){
@@ -354,6 +378,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [0, 0, 0, 0, 1, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -366,10 +391,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     projection3DXY(vector){
@@ -382,6 +408,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -394,10 +421,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     projection3DXZ(vector){
@@ -410,6 +438,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -422,10 +451,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     projection3DYZ(vector){
@@ -438,6 +468,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(4, 4, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -450,10 +481,11 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 
     shearing(vector, kx, ky){
@@ -466,6 +498,7 @@ class Transformations{
 
         let la = new LinearAlgebra();
         let c = new Vector(vector.dim + 1);
+        let aux = new Vector(vector.dim);
         let canonicalMatrix = new Matrix(3, 3, [1, ky, 0, kx, 1, 0, 0, 0, 1]);
 
         for(let i = 1; i <= c.dim; i++){
@@ -478,9 +511,10 @@ class Transformations{
 
         c = la.dot(canonicalMatrix,c);
 
-        c.elements.pop();
-        c.rows--;
+        for(let i = 1; i <= aux.dim; i++){
+            aux.set(i, c.get(i, 1));
+        }
 
-        return c;
+        return aux;
     }
 }
