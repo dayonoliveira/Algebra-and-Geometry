@@ -8,11 +8,16 @@ let plane = new Plane(20,20,20,40,40,0);
 function setup(){
     createCanvas(1920, 940, WEBGL);
     createEasyCam();
-    background(52);
-    frameRate(60);  
+    frameRate(24);  
 }
 
 function draw(){
+
+    background(52);
+
+    plane.draw();
+
+    plane.rotate(40);
 
     //triangle.draw();
 
@@ -33,8 +38,8 @@ function draw(){
     //rectangle.translate(60, 60);
     
     //line.draw();
-
-    //line.rotate(40);
     
+    //line.rotate(40);
+
     //line.translate(60, 60);
 }

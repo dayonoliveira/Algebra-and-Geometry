@@ -5,6 +5,8 @@ class Line{
             new Vector(2, [x1, y1]),
             new Vector(2, [x2, y2])
         ]
+
+        this.la = new LinearAlgebra();
     }
 
     rotate(angle){
@@ -20,15 +22,25 @@ class Line{
 
         for(let i = 0; i < this.points.length; i++){
             this.points[i] = tr.translate2D(this.points[i], x, y);
-        }
+        } 
     }
 
     draw(){
+/* 
+        let lastPoints;
+        let actualPoints = this.points;
+
+        if(actualPoints != lastPoints){
+            lastPoints = actualPoints;
+            redraw();
+        }
+ */
         stroke(color(255));
         beginShape();
-        vertex(this.points[0].get(1), this.points[0].get(2));
-        vertex(this.points[1].get(1), this.points[1].get(2));
+        vertex(this.points[0].get(1, 1), this.points[0].get(2, 1));
+        vertex(this.points[1].get(1, 1), this.points[1].get(2, 1));
         endShape();
+        
     }
 
 }
