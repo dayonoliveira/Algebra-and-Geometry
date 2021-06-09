@@ -4,16 +4,19 @@ let circle = new Circle(0, 0, 60, 10);
 let triangle = new Triangle(0, 0, 30, 0, 15, 60);
 
 let plane = new Plane(20,20,20,40,40,0);
+let parallelogram = new Parallelogram(20,20,20,40,40,40);
 
 function setup(){
     createCanvas(1920, 940, WEBGL);
     createEasyCam();
-    frameRate(2);  
+    frameRate(60);  
 }
 
 function draw(){
 
     background(52);
+
+    parallelogram.draw();
 
     //plane.draw();
 

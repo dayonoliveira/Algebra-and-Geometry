@@ -82,6 +82,7 @@ class Rectangle{
         vertex(this.points[0].get(1), this.points[0].get(2));
         vertex(this.points[3].get(1), this.points[3].get(2));
         vertex(this.points[2].get(1), this.points[2].get(2));
+        
         endShape();
 
 
