@@ -9,7 +9,7 @@ let parallelogram = new Parallelogram(20,20,20,40,40,40);
 function setup(){
     createCanvas(1920, 940, WEBGL);
     createEasyCam();
-    frameRate(60);  
+    frameRate(24);  
 }
 
 function draw(){
@@ -17,6 +17,7 @@ function draw(){
     background(52);
 
     parallelogram.draw();
+    parallelogram.rotate(40);
 
     //plane.draw();
 

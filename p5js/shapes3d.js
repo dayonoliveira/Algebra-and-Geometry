@@ -59,6 +59,16 @@ class Parallelogram{
         ]
     }
 
+    rotate(angle){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            //this.points[i] = tr.rotation3DX(this.points[i], angle);
+            //this.points[i] = tr.rotation3DY(this.points[i], angle);
+            this.points[i] = tr.rotation3DZ(this.points[i], angle);
+        }
+    }
+
     draw(){
         beginShape();
         
