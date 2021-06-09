@@ -69,6 +69,14 @@ class Parallelogram{
         }
     }
 
+    translate(x, y, z){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.translate3D(this.points[i], x, y, z);
+        }
+    }
+
     draw(){
         beginShape();
         

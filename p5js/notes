@@ -1,19 +1,40 @@
 Rectangle 1:
 
-	point 1: x, y, z
-	point 2: x + w, y, z
-	point 3: x + w, y + h, z
-	point 4: x, y + h, z
+	point 0: x, y, z
+	point 1: x + w, y, z
+	point 2: x + w, y + h, z
+	point 3: x, y + h, z
 
 Rectangle 2:
 
-	point 5: x, y, z + l
-	point 6: x + w, y, z + l
-	point 7: x + w, y + h, z + l
-	point 8: x, y + h, z + l
+	point 4: x, y, z + l
+	point 5: x + w, y, z + l
+	point 6: x + w, y + h, z + l
+	point 7: x, y + h, z + l
 
 -------------------
 
 Part 1:
 
-	vartex()
+	vertex(0)
+    vertex(1)
+    vertex(2)
+    vertex(0)
+    vertex(3)
+    vertex(2)
+
+Part 2:
+
+    vertex(6)
+    vertex(7)
+    vertex(4)
+    vertex(6)
+    vertex(5)
+    vertex(4)
+
+Part 3:
+
+    vertex(3)
+    vertex(6)
+    vertex(2)
+    vertex(4)

@@ -17,7 +17,10 @@ function draw(){
     background(52);
 
     parallelogram.draw();
+    
     parallelogram.rotate(40);
+
+    parallelogram.translate(50, 50, 0);
 
     //plane.draw();
 
