@@ -5,6 +5,7 @@ let triangle = new Triangle(0, 0, 30, 0, 15, 60);
 
 let plane = new Plane(20,20,20,40,40,0);
 let parallelogram = new Parallelogram(20,20,20,40,40,40);
+let sphere = new Sphere(0, 0, 0, 20, 5, 3);
 
 function setup(){
     createCanvas(1920, 940, WEBGL);
@@ -16,11 +17,13 @@ function draw(){
 
     background(52);
 
-    parallelogram.draw();
-    
-    parallelogram.rotate(40);
+    sphere.draw();
 
-    parallelogram.translate(50, 50, 0);
+    //parallelogram.draw();
+    
+    //parallelogram.rotate(40);
+
+    //parallelogram.translate(50, 50, 0);
 
     //plane.draw();
 
