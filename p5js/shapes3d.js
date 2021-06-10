@@ -154,13 +154,39 @@ class Sphere{
         this.points = [];
         this.points[0] = new Vector(3, [x, y, z]);
         this.points[1] = new Vector(3, [x, y + r, z]);
+        this.points[2] = new Vector(3, [x, y - r, z]);
         this.newPoint = tr.rotation3DZ(this.points[1], this.angle);
         this.points.push(this.newPoint);
 
-        for(let i = 2; i <= st; i++){
+        for(let i = 3; i <= st; i++){
             this.newPoint = tr.rotation3DZ(this.points[i], this.angle);
             this.points.push(this.newPoint);
         }
+
+        this.angle = 360 / se;
+
+        let aux = [];
+
+        for(let i = 3; i <= st +  1; i++){
+            this.newPoint = tr.rotation3DY(this.points[i], this.angle);
+            this.points.push(this.newPoint);
+            aux.push(this.newPoint);
+        }
+
+        for(let i = 0; i < se; i++){
+
+            for(let j = 0; j < aux.length; j++){
+                aux[j] = tr.rotation3DY(aux[j], this.angle);
+            }
+
+            for(let j = 0; j < aux.length; j++){
+                this.points.push(aux[j]);
+            }
+
+            //aux = (aux)
+        }
+
+
     
     }
 
