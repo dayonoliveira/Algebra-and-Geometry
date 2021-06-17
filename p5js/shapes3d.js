@@ -150,6 +150,7 @@ class Sphere{
 
         let tr = new Transformations();
         this.stack = st;
+        this.sector = se;
         this.angle = 180 / st;
         this.points = [];
         this.points[0] = new Vector(3, [x, y, z]);
@@ -167,7 +168,7 @@ class Sphere{
 
         let aux = [];
 
-        for(let i = 3; i <= st +  1; i++){
+        for(let i = 3; i <= st + 1; i++){
             this.newPoint = tr.rotation3DY(this.points[i], this.angle);
             this.points.push(this.newPoint);
             aux.push(this.newPoint);
@@ -182,15 +183,13 @@ class Sphere{
             for(let j = 0; j < aux.length; j++){
                 this.points.push(aux[j]);
             }
-
-            //aux = (aux)
         }
-
-
-    
     }
 
     draw(){
+        let couter = 0;
+        let center = 1;
+        let nextUnder = 3;
         
 
         stroke(color(255));
@@ -206,6 +205,31 @@ class Sphere{
             vertex(this.points[i].get(1), this.points[i].get(2), this.points[i].get(3));
         }
                 
+        endShape();
+
+        beginShape();
+
+        for(let i = 1; i <= this.sector; i++){
+
+            if(!(couter == this.sector)){
+                vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
+                vertex(this.points[nextUnder].get(1), this.points[nextUnder].get(2), this.points[nextUnder].get(3));
+                vertex(this.points[nextUnder + 4].get(1), this.points[nextUnder + 4].get(2), this.points[nextUnder + 4].get(3));
+                vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
+                nextUnder += 4;
+                couter++;
+            }else{
+                vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
+                vertex(this.points[nextUnder].get(1), this.points[nextUnder].get(2), this.points[nextUnder].get(3));
+                vertex(this.points[1].get(1), this.points[1].get(2), this.points[1].get(3));
+                couter++;
+            }
+
+            
+        }
+
+
+
         endShape();
     }
 
