@@ -187,10 +187,11 @@ class Sphere{
     }
 
     draw(){
-        let couter = 0;
-        let center = 1;
+        let counter = 0;
+        let centerUnder = 1;
         let nextUnder = 3;
-        
+        let centerTop = 2;
+        let nextTop = 6;
 
         stroke(color(255));
 
@@ -211,25 +212,48 @@ class Sphere{
 
         for(let i = 1; i <= this.sector; i++){
 
-            if(!(couter == this.sector)){
-                vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
+            if(!(counter == this.sector)){
+                vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
                 vertex(this.points[nextUnder].get(1), this.points[nextUnder].get(2), this.points[nextUnder].get(3));
                 vertex(this.points[nextUnder + 4].get(1), this.points[nextUnder + 4].get(2), this.points[nextUnder + 4].get(3));
-                vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
+                vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
                 nextUnder += 4;
-                couter++;
+                counter++;
             }else{
-                vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
+                vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
                 vertex(this.points[nextUnder].get(1), this.points[nextUnder].get(2), this.points[nextUnder].get(3));
                 vertex(this.points[1].get(1), this.points[1].get(2), this.points[1].get(3));
-                couter++;
+                counter++;
             }
 
             
         }
 
+        endShape();
 
+        counter = 0;
 
+        beginShape();
+
+        for(let i = 1; i <= this.sector; i++){
+
+            if(!(counter == this.sector)){
+                vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
+                vertex(this.points[nextTop].get(1), this.points[nextTop].get(2), this.points[nextTop].get(3));
+                vertex(this.points[nextTop + 4].get(1), this.points[nextTop + 4].get(2), this.points[nextTop + 4].get(3));
+                vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
+                nextTop += 4;
+                counter++;
+            }else{
+                vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
+                vertex(this.points[nextTop].get(1), this.points[nextTop].get(2), this.points[nextTop].get(3));
+                vertex(this.points[1].get(1), this.points[1].get(2), this.points[1].get(3));
+                counter++;
+            }
+
+            
+        }
+        
         endShape();
     }
 
