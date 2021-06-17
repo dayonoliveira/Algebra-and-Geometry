@@ -193,18 +193,19 @@ class Sphere{
         let centerTop = 2;
         let nextTop = this.stack + 1;
 
-        stroke(color(255));
+        stroke(color(52));
+        fill(color(10));
 
-        noFill();
+        
 
         beginShape();
 
         
 
-        for(let i = 0; i < this.points.length; i++){
+        /* for(let i = 0; i < this.points.length; i++){
             vertex(this.points[0].get(1), this.points[0].get(2), this.points[0].get(3));
             vertex(this.points[i].get(1), this.points[i].get(2), this.points[i].get(3));
-        }
+        } */
                 
         endShape();
 
@@ -257,22 +258,26 @@ class Sphere{
         endShape();
 
         let aux1 = 3;
+        let aux2;
 
         beginShape();
 
-        for(let i = 1; i <= this.stack - 2; i++){
-            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-            aux1 += 1;
-            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-            aux1 += this.stack - 2;
-            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-            aux1 += 1;
-            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-            aux1 -= this.stack - 1;
-            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-
-            
+        for(let i = 1; i <= this.sector; i++){
+            aux2 = aux1;
+            for(let j = 1; j <= this.stack - 2; j++){
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += this.stack - 2;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 -= this.stack - 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            }
+            aux1 = (this.stack + aux2) - 1;
         }
+
 
         endShape();
     }
