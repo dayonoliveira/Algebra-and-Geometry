@@ -191,7 +191,7 @@ class Sphere{
         let centerUnder = 1;
         let nextUnder = 3;
         let centerTop = 2;
-        let nextTop = 6;
+        let nextTop = this.stack + 1;
 
         stroke(color(255));
 
@@ -215,9 +215,9 @@ class Sphere{
             if(!(counter == this.sector)){
                 vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
                 vertex(this.points[nextUnder].get(1), this.points[nextUnder].get(2), this.points[nextUnder].get(3));
-                vertex(this.points[nextUnder + 4].get(1), this.points[nextUnder + 4].get(2), this.points[nextUnder + 4].get(3));
+                vertex(this.points[nextUnder + (this.stack - 1)].get(1), this.points[nextUnder + (this.stack - 1)].get(2), this.points[nextUnder + (this.stack - 1)].get(3));
                 vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
-                nextUnder += 4;
+                nextUnder += this.stack - 1;
                 counter++;
             }else{
                 vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
@@ -240,9 +240,9 @@ class Sphere{
             if(!(counter == this.sector)){
                 vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
                 vertex(this.points[nextTop].get(1), this.points[nextTop].get(2), this.points[nextTop].get(3));
-                vertex(this.points[nextTop + 4].get(1), this.points[nextTop + 4].get(2), this.points[nextTop + 4].get(3));
+                vertex(this.points[nextTop + (this.stack - 1)].get(1), this.points[nextTop + (this.stack - 1)].get(2), this.points[nextTop + (this.stack - 1)].get(3));
                 vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
-                nextTop += 4;
+                nextTop += this.stack - 1;
                 counter++;
             }else{
                 vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
@@ -254,6 +254,26 @@ class Sphere{
             
         }
         
+        endShape();
+
+        let aux1 = 3;
+
+        beginShape();
+
+        for(let i = 1; i <= this.stack - 2; i++){
+            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            aux1 += 1;
+            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            aux1 += this.stack - 2;
+            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            aux1 += 1;
+            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            aux1 -= this.stack - 1;
+            vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+
+            
+        }
+
         endShape();
     }
 
