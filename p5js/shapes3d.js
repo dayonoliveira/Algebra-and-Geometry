@@ -302,6 +302,24 @@ class Pyramid{
         ]
     }
 
+    rotate(angle){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            //this.points[i] = tr.rotation3DX(this.points[i], angle);
+            //this.points[i] = tr.rotation3DY(this.points[i], angle);
+            this.points[i] = tr.rotation3DZ(this.points[i], angle);
+        }
+    }
+
+    translate(x, y, z){
+        let tr = new Transformations();
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.translate3D(this.points[i], x, y, z);
+        }
+    }
+
     draw(){
         let counter = 0;
         let center = 4;
@@ -333,9 +351,7 @@ class Pyramid{
                 vertex(this.points[next].get(1), this.points[next].get(2), this.points[next].get(3));
                 vertex(this.points[0].get(1), this.points[0].get(2), this.points[0].get(3));
                 vertex(this.points[center].get(1), this.points[center].get(2), this.points[center].get(3));
-            }
-
-            
+            }      
         }
         
         endShape();

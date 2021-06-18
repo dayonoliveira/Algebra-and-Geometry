@@ -20,6 +20,10 @@ function draw(){
 
     pyramid.draw();
 
+    //pyramid.rotate(40);
+
+    //pyramid.translate(50, 50, 0);
+
     //sphere.draw();
 
     //sphere.rotate(40);
