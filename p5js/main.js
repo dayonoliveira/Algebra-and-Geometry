@@ -6,6 +6,7 @@ let triangle = new Triangle(0, 0, 30, 0, 15, 60);
 let plane = new Plane(20,20,20,40,40,0);
 let parallelogram = new Parallelogram(20,20,20,40,40,40);
 let sphere = new Sphere(0, 0, 0, 60, 20, 20);
+let pyramid = new Pyramid(0, 0, 0, 20, 20, 20);
 
 function setup(){
     createCanvas(1920, 940, WEBGL);
@@ -17,7 +18,13 @@ function draw(){
 
     background(52);
 
-    sphere.draw();
+    pyramid.draw();
+
+    //sphere.draw();
+
+    //sphere.rotate(40);
+
+    //sphere.translate(80, 80, 0);
 
     //parallelogram.draw();
     
