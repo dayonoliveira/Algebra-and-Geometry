@@ -148,6 +148,10 @@ class Sphere{
     
     constructor(x, y, z, r, st, se){
 
+        if(st < 5 && se < se){
+            throw new Error("Stacks and sectors must be greater than 5.");
+        }
+
         let tr = new Transformations();
         this.stack = st;
         this.sector = se;
@@ -211,11 +215,9 @@ class Sphere{
         let centerTop = 2;
         let nextTop = this.stack + 1;
 
-        stroke(color(52));
+        stroke(color(150));
 
-        beginShape();
-                
-        endShape();
+        fill(color(15));
 
         beginShape();
 
@@ -231,18 +233,43 @@ class Sphere{
             }else{
                 vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
                 vertex(this.points[nextUnder].get(1), this.points[nextUnder].get(2), this.points[nextUnder].get(3));
-                vertex(this.points[1].get(1), this.points[1].get(2), this.points[1].get(3));
+                vertex(this.points[3].get(1), this.points[3].get(2), this.points[3].get(3));
+                vertex(this.points[centerUnder].get(1), this.points[centerUnder].get(2), this.points[centerUnder].get(3));
                 counter++;
-            }
-
-            
+            }           
         }
 
         endShape();
 
-        counter = 0;
+        
+
+        let aux1 = 3;
+        let aux2;
+
+        for(let i = 1; i <= this.sector; i++){
+            beginShape();
+            aux2 = aux1;
+            for(let j = 1; j <= this.stack - 2; j++){
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += this.stack - 2;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 -= this.stack - 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            }
+            vertex(this.points[2].get(1), this.points[2].get(2), this.points[2].get(3));
+            aux1 = (this.stack + aux2) - 1;
+            endShape();
+        }
+
+        
 
         beginShape();
+
+        counter = 0;
 
         for(let i = 1; i <= this.sector; i++){
 
@@ -256,36 +283,20 @@ class Sphere{
             }else{
                 vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
                 vertex(this.points[nextTop].get(1), this.points[nextTop].get(2), this.points[nextTop].get(3));
-                vertex(this.points[1].get(1), this.points[1].get(2), this.points[1].get(3));
+                vertex(this.points[6].get(1), this.points[6].get(2), this.points[6].get(3));
+                vertex(this.points[centerTop].get(1), this.points[centerTop].get(2), this.points[centerTop].get(3));
                 counter++;
             }
 
             
         }
+
+        endShape();
+
+
         
-        endShape();
 
-        let aux1 = 3;
-        let aux2;
-
-        beginShape();
-
-        for(let i = 1; i <= this.sector; i++){
-            aux2 = aux1;
-            for(let j = 1; j <= this.stack - 2; j++){
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 += 1;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 += this.stack - 2;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 += 1;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 -= this.stack - 1;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-            }
-            aux1 = (this.stack + aux2) - 1;
-        }
-        endShape();
+        
     }
 
 }

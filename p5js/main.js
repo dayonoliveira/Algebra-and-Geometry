@@ -11,22 +11,22 @@ let pyramid = new Pyramid(0, 0, 0, 20, 20, 20);
 function setup(){
     createCanvas(1920, 940, WEBGL);
     createEasyCam();
-    frameRate(24);  
+    frameRate(60);  
 }
 
 function draw(){
 
     background(52);
 
-    pyramid.draw();
+    //pyramid.draw();
 
     //pyramid.rotate(40);
 
     //pyramid.translate(50, 50, 0);
 
-    //sphere.draw();
+    sphere.draw();
 
-    //sphere.rotate(40);
+    sphere.rotate(40);
 
     //sphere.translate(80, 80, 0);
 
