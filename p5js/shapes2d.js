@@ -26,16 +26,9 @@ class Line{
     }
 
     draw(){
-/* 
-        let lastPoints;
-        let actualPoints = this.points;
 
-        if(actualPoints != lastPoints){
-            lastPoints = actualPoints;
-            redraw();
-        }
- */
-        stroke(color(255));
+        stroke(color(230, 138, 0));
+
         beginShape();
         vertex(this.points[0].get(1, 1), this.points[0].get(2, 1));
         vertex(this.points[1].get(1, 1), this.points[1].get(2, 1));
@@ -48,6 +41,11 @@ class Line{
 class Rectangle{
 
     constructor(x, y, w, h){
+
+        if(w < 1 || h < 1){
+            throw new Error("Width and height must be greater than or equal to 1.");
+        }
+
         this.points = [
             new Vector(2, [x, y]),
             new Vector(2, [x + w, y]),
@@ -73,8 +71,10 @@ class Rectangle{
     }
 
     draw(){
-        noFill()
-        stroke(color(255));
+        stroke(color(230, 138, 0));
+
+        fill(color(115, 0, 230));
+
         beginShape();
         vertex(this.points[0].get(1), this.points[0].get(2));
         vertex(this.points[1].get(1), this.points[1].get(2));
@@ -96,21 +96,21 @@ class Circle{
         
         if(t < 3){
             throw new Error("The value 't' must be greater than or equal to 3.");
-        }else{
-            let tr = new Transformations();
-            this.angle = (360 / t);
-            this.triangleQuantity = t;
-            this.newPosition = 0;
-            this.points = [];
-            this.points[0] = new Vector(2, [x, y]);
-            this.points[1] = new Vector(2, [x + r, y + r]);
-            this.newPosition = tr.rotation2D(this.points[1], this.angle);
-            this.points.push(this.newPosition);
+        }
 
-            for(let i = 2; i < t; i++){
-                this.newPosition = tr.rotation2D(this.points[i], this.angle);
-                this.points.push(this.newPosition);
-            }
+        let tr = new Transformations();
+        this.angle = (360 / t);
+        this.triangleQuantity = t;
+        this.newPosition = 0;
+        this.points = [];
+        this.points[0] = new Vector(2, [x, y]);
+        this.points[1] = new Vector(2, [x + r, y + r]);
+        this.newPosition = tr.rotation2D(this.points[1], this.angle);
+        this.points.push(this.newPosition);
+
+        for(let i = 2; i < t; i++){
+            this.newPosition = tr.rotation2D(this.points[i], this.angle);
+            this.points.push(this.newPosition);
         }
     }
 
@@ -134,8 +134,9 @@ class Circle{
         let center = 0;
         let next = 1;
 
-        stroke(color(255));
-        noFill();
+        stroke(color(230, 138, 0));
+
+        fill(color(115, 0, 230));
 
         beginShape();
 
@@ -191,8 +192,9 @@ class Triangle{
 
     draw(){
 
-        stroke(color(255));
-        noFill();
+        stroke(color(230, 138, 0));
+
+        fill(color(115, 0, 230));
 
         beginShape();
 

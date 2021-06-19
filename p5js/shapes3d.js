@@ -1,6 +1,11 @@
 class Plane{
 
-    constructor(x, y, z, w, h, l){
+    constructor(x, y, z, w, h){
+
+        if(w < 1 || h < 1){
+            throw new Error("Width and height must be greater than or equal to 1.");
+        }
+
         this.points = [
             new Vector(3, [x, y, z]),
             new Vector(3, [x + w, y, z]),
@@ -28,6 +33,10 @@ class Plane{
     }
 
     draw(){
+
+        stroke(color(230, 138, 0));
+
+        fill(color(115, 0, 230));
         
         beginShape();
 
@@ -47,6 +56,11 @@ class Plane{
 class Parallelogram{
 
     constructor(x, y, z, w, h, l){
+
+        if(w < 1 || h < 1 || l < 1){
+            throw new Error("Width, height and length must be greater than or equal to 1.");
+        }
+
         this.points = [
             new Vector(3, [x, y, z]),
             new Vector(3, [x + w, y, z]),
@@ -78,6 +92,10 @@ class Parallelogram{
     }
 
     draw(){
+        stroke(color(230, 138, 0));
+
+        fill(color(115, 0, 230));
+
         beginShape();
         
         vertex(this.points[0].get(1), this.points[0].get(2), this.points[0].get(3));
@@ -138,8 +156,6 @@ class Parallelogram{
         vertex(this.points[4].get(1), this.points[4].get(2), this.points[4].get(3));
 
         endShape();
-        
-
     }
 
 }
@@ -148,8 +164,8 @@ class Sphere{
     
     constructor(x, y, z, r, st, se){
 
-        if(st < 5 && se < se){
-            throw new Error("Stacks and sectors must be greater than 5.");
+        if(st < 2 || se < 4){
+            throw new Error("Stacks must be greater than or equal to 2 and Sectors must be greater than or equal to 4.");
         }
 
         let tr = new Transformations();
@@ -215,9 +231,9 @@ class Sphere{
         let centerTop = 2;
         let nextTop = this.stack + 1;
 
-        stroke(color(150));
+        stroke(color(230, 138, 0));
 
-        fill(color(15));
+        fill(color(115, 0, 230));
 
         beginShape();
 
@@ -291,12 +307,7 @@ class Sphere{
             
         }
 
-        endShape();
-
-
-        
-
-        
+        endShape();    
     }
 
 }
@@ -304,6 +315,11 @@ class Sphere{
 class Pyramid{
 
     constructor(x, y, z, w, h, hp){
+
+        if(w < 1 || h < 1 || hp < 1){
+            throw new Error("Width, height and 'hp' must be greater than or equal to 1.");
+        }
+
         this.points = [
             new Vector(3, [x, y, z]),
             new Vector(3, [x + w, y, z]),
@@ -335,6 +351,10 @@ class Pyramid{
         let counter = 0;
         let center = 4;
         let next = 0;
+
+        stroke(color(230, 138, 0));
+
+        fill(color(115, 0, 230));
 
         beginShape();
         
