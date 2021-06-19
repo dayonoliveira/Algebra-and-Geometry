@@ -1,6 +1,6 @@
 let line = new Line(0, 20, 80, 20);
 let rectangle = new Rectangle(20, 20, 40, 40);
-let circle = new Circle(0, 0, 60, 10);
+let circle = new Circle(0, 0, 60, 20);
 let triangle = new Triangle(0, 0, 30, 0, 15, 60);
 
 let plane = new Plane(20,20,20,40,40,0);
@@ -17,6 +17,8 @@ function setup(){
 function draw(){
 
     background(52);
+
+    circle.draw();
 
 
     /* # shapes2d tests #
