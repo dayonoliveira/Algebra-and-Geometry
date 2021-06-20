@@ -9,7 +9,7 @@ let sphere = new Sphere(0, 0, 0, 60, 10, 10);
 let pyramid = new Pyramid(0, 0, 0, 60, 60, 60);
 
 function setup(){
-    createCanvas(1920, 940, WEBGL);
+    createCanvas(window.innerWidth, window.innerHeight, WEBGL);
     createEasyCam();
     frameRate(60);  
 }
@@ -17,8 +17,6 @@ function setup(){
 function draw(){
 
     background(52);
-
-    circle.draw();
 
 
     /* # shapes2d tests #

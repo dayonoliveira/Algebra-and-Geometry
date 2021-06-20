@@ -181,7 +181,7 @@ class Sphere{
 
         for(let i = 3; i <= st; i++){
             this.newPoint = tr.rotation3DZ(this.points[i], this.angle);
-            this.points.push(this.newPoint);
+            this.points[i + 1] = this.newPoint;
         }
 
         this.angle = 360 / se;
@@ -255,36 +255,6 @@ class Sphere{
             }           
         }
 
-        endShape();
-
-        
-
-        let aux1 = 3;
-        let aux2;
-
-        for(let i = 1; i <= this.sector; i++){
-            beginShape();
-            aux2 = aux1;
-            for(let j = 1; j <= this.stack - 2; j++){
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 += 1;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 += this.stack - 2;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 += 1;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-                aux1 -= this.stack - 1;
-                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
-            }
-            vertex(this.points[2].get(1), this.points[2].get(2), this.points[2].get(3));
-            aux1 = (this.stack + aux2) - 1;
-            endShape();
-        }
-
-        
-
-        beginShape();
-
         counter = 0;
 
         for(let i = 1; i <= this.sector; i++){
@@ -307,7 +277,33 @@ class Sphere{
             
         }
 
-        endShape();    
+        
+        endShape();
+        
+        let aux1 = 3;
+        let aux2;
+
+        for(let i = 1; i <= this.sector; i++){
+            beginShape();
+            aux2 = aux1;
+            for(let j = 1; j <= this.stack - 2; j++){
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += this.stack - 2;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 += 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+                aux1 -= this.stack - 1;
+                vertex(this.points[aux1].get(1), this.points[aux1].get(2), this.points[aux1].get(3));
+            }
+            vertex(this.points[2].get(1), this.points[2].get(2), this.points[2].get(3));
+            aux1 = (this.stack + aux2) - 1;
+            endShape();
+        } 
+        
+
+           
     }
 
 }

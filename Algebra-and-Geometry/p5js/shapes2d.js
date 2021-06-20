@@ -101,16 +101,16 @@ class Circle{
         let tr = new Transformations();
         this.angle = (360 / t);
         this.triangleQuantity = t;
-        this.newPosition = 0;
-        this.points = [];
-        this.points[0] = new Vector(2, [x, y]);
-        this.points[1] = new Vector(2, [x + r, y + r]);
-        this.newPosition = tr.rotation2D(this.points[1], this.angle);
-        this.points.push(this.newPosition);
+        this.points = [new Vector(2, [0, 0]), new Vector(2, [0 + r, 0])];
+        
+        for(let i = 1; i <= t; i++){
 
-        for(let i = 2; i < t; i++){
-            this.newPosition = tr.rotation2D(this.points[i], this.angle);
-            this.points.push(this.newPosition);
+            this.points.push(tr.rotation2D(this.points[i], this.angle));           
+        }
+
+        for(let i = 0; i <= t; i++){
+            
+            this.points[i] = tr.translate2D(this.points[i], x, y);   
         }
     }
 
