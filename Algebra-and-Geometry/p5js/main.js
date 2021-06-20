@@ -18,7 +18,6 @@ function draw(){
 
     background(52);
 
-
     /* # shapes2d tests #
     
         line.draw();

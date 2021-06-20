@@ -173,9 +173,9 @@ class Sphere{
         this.sector = se;
         this.angle = 180 / st;
         this.points = [];
-        this.points[0] = new Vector(3, [x, y, z]);
-        this.points[1] = new Vector(3, [x, y + r, z]);
-        this.points[2] = new Vector(3, [x, y - r, z]);
+        this.points[0] = new Vector(3, [0, 0, 0]);
+        this.points[1] = new Vector(3, [0, 0 + r, 0]);
+        this.points[2] = new Vector(3, [0, 0 - r, 0]);
         this.newPoint = tr.rotation3DZ(this.points[1], this.angle);
         this.points.push(this.newPoint);
 
@@ -203,6 +203,10 @@ class Sphere{
             for(let j = 0; j < aux.length; j++){
                 this.points.push(aux[j]);
             }
+        }
+
+        for(let i = 0; i < this.points.length; i++){
+            this.points[i] = tr.translate3D(this.points[i], x, y, z);
         }
     }
 
