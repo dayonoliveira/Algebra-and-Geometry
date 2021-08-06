@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-        </style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');</style>
     <link rel="stylesheet" href="css/style-alggeo.css">
     <title>Algebra & Geometry</title>
 </head>
@@ -16,26 +14,24 @@
         <div id="pageTitle">
             <h2>Algebra & Geometry</h2>
         </div>
+        <div id="buttons">
+            <div id="switchPage">
+                <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
+            </div>
+            <div id="chooseFile">
+                <label for="file">Open file</label>
+                <input id="file" type="file">
+            </div>
+        </div>
     </header>
-    <nav>
-        <div id="switchPage">
-            <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
-        </div>
-        <div id="chooseFile">
-            <label for="file">Open file</label>
-            <input id="file" type="file">
-        </div>
-    </nav>
     <main>
         <textarea id="textarea1" cols="30" rows="20"></textarea>
     </main>
     
     <script>
-        
         function goToP5JS(){
-            window.location.href = "p5js-screen.html"
+            window.location.href = "p5js-screen.html";
         }
-        
     </script>
 
     <script src="algebra-libraries/matrix.js"></script>
