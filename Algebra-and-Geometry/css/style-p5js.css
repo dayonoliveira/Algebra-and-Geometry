@@ -1,3 +1,59 @@
 body{
     margin: 0px;
+    font-family: 'Roboto';
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+
+body::-webkit-scrollbar-track{
+    background-color: #cecece;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: #747474;
+    border-radius: 8px;
+    border: 1px solid #cecece;
+}
+
+header{
+    background-color: #e65c00ce;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+header h2{
+    color: #ffe6e6;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+    padding-bottom: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+#switchPageButton{
+    background-color: rgba(134, 0, 179, 30%);
+    color: #ffffff;
+    font-size: medium;
+    border: 2px solid rgba(134, 0, 179, 8%);
+    border-radius: 10px;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+#switchPageButton:hover{
+    background-color: #ffffff;
+    border: 2px solid rgba(134, 0, 179, 0.794);
+    color: rgba(134, 0, 179, 0.561);
 }
