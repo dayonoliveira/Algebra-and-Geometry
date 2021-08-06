@@ -3,15 +3,15 @@ class Matrix{
     constructor(rows, cols, elements){
         
         if(rows == undefined || cols == undefined){
-            throw new Error("A quantidade de linhas e colunas deve ser especificada");
+            throw new Error("The number of rows and columns must be specified.");
         }
         
         if(rows < 0){
-            throw new Error("A quantidade de linhas deve ser igual ou maior que zero");
+            throw new Error("The number of lines must be equal to or greater than zero.");
         }
 
         if(cols < 0){
-            throw new Error("A quantidade de colunas deve ser igual ou maior que zero");
+            throw new Error("The number of columns must be equal to or greater than zero.");
         }
         
         this.rows = rows;
@@ -27,7 +27,7 @@ class Matrix{
             }
         }else{
             if(elements.length != size){
-                throw new Error("A quantidade de elementos é incompatível com o tamanho da matriz");
+                throw new Error("The number of elements is incompatible with the size of the array.");
             }
 
             this.elements = elements;
@@ -50,11 +50,11 @@ class Matrix{
 
     #validateElementIndex(i, j){
         if(i <= 0 || i > this.rows){
-            throw new Error(`O valor de i deve estar entre 1 e ${this.rows}`);
+            throw new Error(`The value of i must be between 1 and ${this.rows}`);
         }
 
         if(j <= 0 || j > this.cols){
-            throw new Error(`O valor de j deve estar entre 1 e ${this.cols}`);
+            throw new Error(`The value of j must be between 1 and ${this.cols}`);
         }
     }
 }

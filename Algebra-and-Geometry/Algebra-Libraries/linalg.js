@@ -25,7 +25,7 @@ class LinearAlgebra{
                 }
             }
         }else{
-            throw new Error("O parametro deve ser um objeto da classe Vector ou da classe Matrix");
+            throw new Error("The parameter must be an object of class Vector or class Matrix.");
         }
         return c;
     }
@@ -33,11 +33,11 @@ class LinearAlgebra{
     sum(a, b){
 
         if(!(a instanceof Matrix) || !(b instanceof Matrix)){
-            throw new Error("Os parametros devem ser objetos da classe Vector ou da classe Matrix");
+            throw new Error("Parameters must be Vector or Matrix class objects.");
         }
 
         if(a.rows != b.rows || a.cols != b.cols){
-            throw new Error("As matrizes não possuem a mesma dimensão.")
+            throw new Error("Arrays do not have the same dimension.")
         }
 
         let c;
@@ -70,7 +70,7 @@ class LinearAlgebra{
         if(typeof(a) == "number"){
 
             if(!(b instanceof Matrix)){
-                throw new Error("O parametro b deve ser um objeto da classe Vector ou da classe Matrix");
+                throw new Error("Parameter b must be an object of class Vector or class Matrix.");
             }
 
             if(b instanceof Vector){
@@ -99,11 +99,11 @@ class LinearAlgebra{
         }else{
 
             if(!(a instanceof Matrix) || !(b instanceof Matrix)){
-                throw new Error("O parametros devem ser objetos da classe Vector ou da classe Matrix");
+                throw new Error("Parameters must be Vector or Matrix class objects.");
             }
 
             if(a.rows != b.rows || a.cols != b.cols){
-                throw new Error("As matrizes não possuem a mesma dimensão.")
+                throw new Error("Arrays do not have the same dimension.");
             }
     
             if(a instanceof Vector && b instanceof Vector){
@@ -133,11 +133,11 @@ class LinearAlgebra{
     dot(a, b){
 
         if(!(a instanceof Matrix) || !(b instanceof Matrix)){
-            throw new Error("Os parametros devem ser objetos da classe Vector ou da classe Matrix");
+            throw new Error("Parameters must be Vector or Matrix class objects.");
         }
 
         if(a.cols != b.rows){
-            throw new Error("A quantidade de colunas da matriz A não é igual a quantidade de linhas da matriz B.")
+            throw new Error("The number of columns in matrix A is not equal to the number of rows in matrix B.")
         }
 
         let c;
@@ -218,7 +218,7 @@ class LinearAlgebra{
     gauss(a){
 
         if(!(a instanceof Matrix)){
-            throw new Error("Os parametros devem ser objetos da classe Matrix");
+            throw new Error("Parameters must be Matrix class objects.");
         }
         
         let c = new Matrix(a.rows, a.cols);
@@ -273,7 +273,7 @@ class LinearAlgebra{
     solve(a){
 
         if(!(a instanceof Matrix)){
-            throw new Error("Os parametros devem ser objetos da classe Matrix");
+            throw new Error("Parameters must be Matrix class objects.");
         }
 
         let c = new Matrix(a.rows, a.cols);
@@ -347,11 +347,11 @@ class LinearAlgebra{
     det(a){
 
         if(!(a instanceof Matrix) && a instanceof Vector){
-            throw new Error("Os parametros devem ser objetos da classe Matrix.");
+            throw new Error("Parameters must be Matrix class objects.");
         }
 
         if(!(a.rows == a.cols)){
-            throw new Error("O número de linhas e de colunas não podem ser diferentes.");
+            throw new Error("The number of rows and columns cannot be different.");
         }
 
         let c = this.gauss(a);
@@ -365,23 +365,11 @@ class LinearAlgebra{
     }
 
     gaussJordanInv(a){
-        
-        /*
-            Este método serve apenas para resolução de matrizes inversas.
-
-            Obs.: Este método é provisório, caso seja encontrada uma forma
-            melhor de inverter matrizes, será aderida e esse método será
-            será excluído.
-        */
 
         if(!(a instanceof Matrix)){
-            throw new Error("Os parametros devem ser objetos da classe Matrix");
+            throw new Error("Parameters must be Matrix class objects.");
         }
-/*
-        if(a.cols != a.rows){
-            throw new Error("A matriz deve ser quadrada (rows == cols) ou a matriz deve ter cols == rows * 2.");
-        }
-*/
+
         let c = new Matrix(a.rows, a.cols);
         let k;
         let coordenadaPivo = c.rows;
