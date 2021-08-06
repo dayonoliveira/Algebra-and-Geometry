@@ -4,43 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        </style>
     <link rel="stylesheet" href="css/style-alggeo.css">
     <title>Algebra & Geometry</title>
 </head>
 <body>
-    <script src="algebra-libraries/matrix.js"></script>
-    <script src="algebra-libraries/vector.js"></script>
-    <script src="algebra-libraries/linalg.js"></script>
-    <script src="algebra-libraries/transformation.js"></script>
-
-    <br>
     
-    <div id="container">
-
-        <div>
+    <header>
+        <div id="pageTitle">
+            <h2>Algebra & Geometry</h2>
+        </div>
+    </header>
+    <nav>
+        <div id="switchPage">
             <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
         </div>
-
-        <div id="algebra">
-            
+        <div id="chooseFile">
             <label for="file">Open file</label>
             <input id="file" type="file">
-
-            <br>
-
-            <textarea id="textarea1" cols="30" rows="20"></textarea>
         </div>
- 
-    </div>
-
+    </nav>
+    <main>
+        <textarea id="textarea1" cols="30" rows="20"></textarea>
+    </main>
+    
     <script>
         
         function goToP5JS(){
             window.location.href = "p5js-screen.html"
         }
-            
+        
     </script>
 
+    <script src="algebra-libraries/matrix.js"></script>
+    <script src="algebra-libraries/vector.js"></script>
+    <script src="algebra-libraries/linalg.js"></script>
+    <script src="algebra-libraries/transformation.js"></script>
     <script src="algebra-libraries/file-reader.js"></script>
 </body>
 </html>
