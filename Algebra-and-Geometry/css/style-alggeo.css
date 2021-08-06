@@ -7,7 +7,9 @@ body{
 header{
     background-color: rgba(134, 0, 179, 30%);
     display: flex;
+    justify-content: space-between;
     padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 header h2{
@@ -20,13 +22,10 @@ header h2{
     border-bottom-width: 2px;
 }
 
-nav{
-    background-color: rgba(134, 0, 179, 15%);
+#buttons{
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-right: 10px;
 }
 
 main{
