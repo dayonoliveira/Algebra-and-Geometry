@@ -9,9 +9,9 @@ let sphere = new Sphere(0, 0, 0, 60, 10, 10);
 let pyramid = new Pyramid(0, 0, 0, 60, 60, 60);
 
 function setup(){
-    createCanvas(window.innerWidth, window.innerHeight, WEBGL);
+    createCanvas(window.innerWidth, (window.innerHeight - 53), WEBGL);
     createEasyCam();
-    frameRate(60);  
+    frameRate(60);
 }
 
 function draw(){
