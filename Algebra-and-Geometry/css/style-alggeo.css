@@ -29,36 +29,50 @@ header h2{
 }
 
 main{
+    border: 3px solid #da3434;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    width: min-content;
     margin-top: 10%;
-    margin-left: calc(50% - 260px);
-    
+    margin-left: calc(50% - 452px);
+    padding: 30px;
 }
 
-#textarea1{
+#infos{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    padding-right: 110px;
+    padding-left: 50px;
+}
+
+.textarea1{
     background-color: rgb(65, 65, 65);
     color: #f19151;
     width: 520px;
+    height: 200px;
     border-width: 2px;
     border-color: rgb(207, 206, 206);
     border-radius: 5px;
 }
 
-#textarea1:focus{
+.textarea1:focus{
     border-color: rgb(224, 224, 224);
     outline:none;
     box-shadow:none;
 }
 
-#textarea1::-webkit-scrollbar{
+.textarea1::-webkit-scrollbar{
     width: 10px;
     height: 10px;
 }
 
-#textarea1::-webkit-scrollbar-track{
+.textarea1::-webkit-scrollbar-track{
     background-color: #cecece;
 }
 
-#textarea1::-webkit-scrollbar-thumb{
+.textarea1::-webkit-scrollbar-thumb{
     background-color: #747474;
     border-radius: 8px;
     border: 1px solid #cecece;
