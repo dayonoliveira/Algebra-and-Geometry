@@ -19,25 +19,25 @@
                 <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
             </div>
             <div id="chooseFile">
-                <label for="file">Open file</label>
-                <input id="file" type="file">
+                <label for="userFiles">Open file</label>
+                <input id="userFiles" type="file">
             </div>
         </div>
     </header>
     <main>
         <div id="infos">
             <div>
-                <h2>Gauss-Jordan</h2>
-                <h4>Exe. time:</h4>
-                <h4>Error:</h4>
+                <h2 id="operation">Gauss-Jordan</h2>
+                <h4 id="exeTime">Exe. time (ms):</h4>
+                <h4 id="error">Error:</h4>
             </div>
         </div>
         <div>
             <div>
-                <textarea class="textarea1" cols="30" rows="20" placeholder="File data"></textarea>
+                <textarea class="textarea1" id="textarea1" cols="30" rows="20" placeholder="File data"></textarea>
             </div>
             <div>
-                <textarea class="textarea1" cols="30" rows="20" placeholder="Result"></textarea>
+                <textarea class="textarea1" id="textarea2" cols="30" rows="20" placeholder="Result"></textarea>
             </div>
         </div>
     </main>
