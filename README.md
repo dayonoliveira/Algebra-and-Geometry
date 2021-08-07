@@ -43,8 +43,8 @@ Now, to calculate the matrix you created in the file, follow the steps below:
 
 ## About geometric shapes
 
-Firstly, this part of the system was only possible thanks to the [P5JS](link) library, as it has a range of possibilities of objects that can be created with different attributes.
-Another library used is the [p5.EasyCam](link), in order to zoom in on the figures and see in other perspectives.
+Firstly, this part of the system was only possible thanks to the [P5JS](https://p5js.org/) library, as it has a range of possibilities of objects that can be created with different attributes.
+Another library used is the [p5.EasyCam](https://github.com/freshfork/p5.EasyCam), in order to zoom in on the figures and see in other perspectives.
 
 To create objects on the canvas you will have to do the following:
 
@@ -52,5 +52,8 @@ To create objects on the canvas you will have to do the following:
 2. Then, in the setup function, use the `createCanvas()` function to create a canvas on the page passing the width and height as parameters, respectively. A third parameter can also be set, which is WEBGL for 3D figures.
 3. Still in the setup function, if you want to modify the frame rate, use the `frameRate()` function passing as parameter the amount of frames you want.
 4. Now in the draw function, change the background color using the `backgroud()` function passing as parameter the color you want.
+5. Now that you have the entire structure ready, you can create the geometric shapes any way you like.
+
+The main.js file also supports object creation from the P5JS library.
 
 >Note: By default, the code comes with a canvas and frame rate set and also with p5.EasyCam initialized.
