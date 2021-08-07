@@ -1,23 +1,22 @@
-let input = document.getElementById('file');
+let userFiles = document.getElementById('userFiles');
 let textarea1 = document.getElementById('textarea1');
+let textarea2 = document.getElementById('textarea2');
 
-
-
-function procuraSimbolo(a){
+function findSymbol(a){
     let newVet = [];
-    let contador = 0;
+    let counter = 0;
 
     for(let i = 0; i < a.length - 1; i++){
         if(!a[i].startsWith("%")){
-            newVet[contador] = a[i];
-            contador++
+            newVet[counter] = a[i];
+            counter++
         }
     }
     
     return newVet;
 }
 
-function vetorLinhas(a){
+function linesVector(a){
     let vetAux = [];
     let vetAux2 = [];
 
@@ -28,7 +27,7 @@ function vetorLinhas(a){
     return vetAux2;
 }
 
-function vetorColunas(a){
+function columnsVector(a){
     let vetAux = [];
     let vetAux2 = [];
 
@@ -39,7 +38,7 @@ function vetorColunas(a){
     return vetAux2;
 }
 
-function vetorElementos(a){
+function elementVector(a){
     let vetAux = [];
     let vetAux2 = [];
 
@@ -54,8 +53,8 @@ function vetorElementos(a){
     return vetAux2;
 }
 
-input.addEventListener('change', () => {
-    let files = input.files;
+userFiles.addEventListener('change', () => {
+    let files = userFiles.files;
  
     if(files.length == 0) return;
  
@@ -65,12 +64,12 @@ input.addEventListener('change', () => {
  
     reader.onload = (e) => {
         const file = e.target.result;
-        const lines = file.split(/\r\n|\n/);
-        let tamanhoMatriz = procuraSimbolo(lines).length;
-        let linhas = vetorLinhas(procuraSimbolo(lines));
-        let colunas = vetorColunas(procuraSimbolo(lines));
-        let elementos = vetorElementos(procuraSimbolo(lines));
-        let a = new Matrix(linhas[0], colunas[0], elementos);
+        const fileLines = file.split(/\r\n|\n/);
+        let fileMatrix = findSymbol(fileLines);
+        let matrixLines = fileMatrix[0].split(" ")[0];
+        let matrixColumns = fileMatrix[0].split(" ")[1];
+        let elements = elementVector(fileMatrix);
+        let matrixObject = new Matrix(linhas[0], colunas[0], elements);
         let la = new LinearAlgebra();
         //console.time('la.gauss("a")');
         //let b = la.gauss(a);
@@ -79,7 +78,7 @@ input.addEventListener('change', () => {
         //console.time('la.solve("a")');
         resultados = la.solve(a);
         //console.timeEnd('la.solve("a")');
-        textarea1.value = lines.join('\n');
+        textarea1.value = fileLines.join('\n');
         console.log(resultados);
         //console.log("pronto!");
 
