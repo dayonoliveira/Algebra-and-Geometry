@@ -165,18 +165,18 @@ class LinearAlgebra{
         return c;
     }
 
-    trocaLinha(a){
+    switchLine(a){
         let c = new Matrix(a.rows, a.cols);
         let aux = 0;
 
-        for(let j = coordenadaPivo; j <= coordenadaPivo; j++){
-            for(let i = coordenadaPivo; i < c.rows; i++){
+        for(let j = pivotCoordinate; j <= pivotCoordinate; j++){
+            for(let i = pivotCoordinate; i < c.rows; i++){
                 if(c.get(i + 1, j) != 0){
                     for(let w = 1; w <= c.cols; w++){
                 
                         aux = c.get(i + 1, w);
-                        c.set(i + 1, w, c.get(coordenadaPivo, w));
-                        c.set(coordenadaPivo, w, aux);
+                        c.set(i + 1, w, c.get(pivotCoordinate, w));
+                        c.set(pivotCoordinate, w, aux);
                         
                     }
 
@@ -186,25 +186,25 @@ class LinearAlgebra{
         }
     }
 
-    maiorPrimeiroPivo(a){
-        let maiorNumero = 1;
-        let linhaFinal = 1;
+    biggestFirstPivot(a){
+        let biggestNumber = 1;
+        let finalLine = 1;
         let c = new Matrix(a.rows, a.cols);
 
         for(let i = 1; i <= c.rows; i++){
             for(let j = 1; j <= 1; j++){
-                if(a.get(i, j) > maiorNumero){
-                    maiorNumero = a.get(i, j);
-                    linhaFinal = i;
+                if(a.get(i, j) > biggestNumber){
+                    biggestNumber = a.get(i, j);
+                    finalLine = i;
                 }    
             }
         }
 
         for(let i = 1; i <= c.rows; i++){
             for(let j = 1; j <= c.cols; j++){
-                if(i == linhaFinal){
-                    c.set(1, j, a.get(linhaFinal, j));
-                    c.set(linhaFinal, j, a.get(1, j));
+                if(i == finalLine){
+                    c.set(1, j, a.get(finalLine, j));
+                    c.set(finalLine, j, a.get(1, j));
                 }else{
                     c.set(i, j, a.get(i, j));
                 }
@@ -216,62 +216,65 @@ class LinearAlgebra{
 
 
     gauss(a){
-
+        console.log("gauss begin");
+        console.timeLog();
         if(!(a instanceof Matrix)){
             throw new Error("Parameters must be Matrix class objects.");
         }
         
         let c = new Matrix(a.rows, a.cols);
         let k;
-        let coordenadaPivo = 1;
+        let pivotCoordinate = 1;
         let aux2 = 1;
         let aux3 = 1;
 
-        c = a;
-
         if(a.cols > a.rows){
-            c = this.maiorPrimeiroPivo(a);
+            c = this.biggestFirstPivot(a);
         }
 
         for(aux2; aux2 < c.rows; aux2++){
 
-            if(c.get(coordenadaPivo, coordenadaPivo) == 0){
-                c = this.trocaLinha(c);
+            if(c.get(pivotCoordinate, pivotCoordinate) == 0){
+                c = this.switchLine(c);
             }
 
-            if(aux2 + 1 == c.rows && c.get(aux2 + 1, coordenadaPivo) != 0){
+            if(c.get(aux2 + 1, pivotCoordinate) != 0){
 
-                k = -1 * (c.get(aux2 + 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                if(aux2 + 1 == c.rows && c.get(aux2 + 1, pivotCoordinate) != 0){
+                    k = -1 * (c.get(aux2 + 1, aux3) / c.get(pivotCoordinate,pivotCoordinate));
                     
-                for(let j = 1; j <= c.cols; j++){
-    
-                    c.set(aux2 + 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 + 1, j));
+                    for(let j = 1; j <= c.cols; j++){
+        
+                        c.set(aux2 + 1, j, k * c.get(pivotCoordinate, j) + c.get(aux2 + 1, j));
+                        
+                    }
+                    pivotCoordinate++;
+                }else if(aux2 + 1 < c.rows && c.get(aux2 + 1, pivotCoordinate) != 0){
+                    k = -1 * (c.get(aux2 + 1, aux3) / c.get(pivotCoordinate,pivotCoordinate));
                     
+                    for(let j = 1; j <= c.cols; j++){
+        
+                        c.set(aux2 + 1, j, k * c.get(pivotCoordinate, j) + c.get(aux2 + 1, j));
+                        
+                    }
                 }
-                coordenadaPivo++;
-            }else if(aux2 + 1 < c.rows && c.get(aux2 + 1, coordenadaPivo) != 0){
-                k = -1 * (c.get(aux2 + 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
-                    
-                for(let j = 1; j <= c.cols; j++){
-    
-                    c.set(aux2 + 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 + 1, j));
-                    
-                }
-            }else if(aux2 + 1 == c.rows && c.get(aux2 + 1, coordenadaPivo) == 0){
-                coordenadaPivo++;
             }
             
-            if(coordenadaPivo > aux3){
-                aux3 = coordenadaPivo;
-                aux2 = coordenadaPivo - 1;
+            if(pivotCoordinate > aux3){
+                aux3 = pivotCoordinate;
+                aux2 = pivotCoordinate - 1;
             }
         }
 
+        console.log("gauss end")
+        console.timeLog();
         return c;
     }
 
     solve(a){
-
+        console.time();
+        console.log("solve begin")
+        console.timeLog();
         if(!(a instanceof Matrix)){
             throw new Error("Parameters must be Matrix class objects.");
         }
@@ -279,7 +282,7 @@ class LinearAlgebra{
         let c = new Matrix(a.rows, a.cols);
         let vet = new Vector(a.rows);
         let k;
-        let coordenadaPivo = c.rows;
+        let pivotCoordinate = c.rows;
         let aux2 = c.rows;
         let aux3 = c.rows;
 
@@ -287,39 +290,37 @@ class LinearAlgebra{
 
         for(aux2; aux2 > 1; aux2--){
 
-            if(c.get(coordenadaPivo, coordenadaPivo) == 0){
-                c = this.trocaLinha(c);
+            if(c.get(pivotCoordinate, pivotCoordinate) == 0){
+                c = this.switchLine(c);
             }
 
-            if(c.get(aux2 - 1, coordenadaPivo) != 0){
+            if(c.get(aux2 - 1, pivotCoordinate) != 0){
 
-                if(aux2 - 1 == 1 && c.get(aux2 - 1, coordenadaPivo) != 0){
-                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                if(aux2 - 1 == 1 && c.get(aux2 - 1, pivotCoordinate) != 0){
+                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(pivotCoordinate,pivotCoordinate));
                     
                     for(let j = 1; j <= c.cols; j++){
         
-                        c.set(aux2 - 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 - 1, j));
+                        c.set(aux2 - 1, j, k * c.get(pivotCoordinate, j) + c.get(aux2 - 1, j));
         
                     }
 
-                    coordenadaPivo--;
-                }else if(aux2 - 1 > 1 && c.get(aux2 - 1, coordenadaPivo) != 0){
-                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                    pivotCoordinate--;
+                }else if(aux2 - 1 > 1 && c.get(aux2 - 1, pivotCoordinate) != 0){
+                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(pivotCoordinate,pivotCoordinate));
                     
                     for(let j = 1; j <= c.cols; j++){
         
-                        c.set(aux2 - 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 - 1, j));
+                        c.set(aux2 - 1, j, k * c.get(pivotCoordinate, j) + c.get(aux2 - 1, j));
         
                     }
-                }else if(aux2 - 1 == 1 && c.get(aux2 - 1, coordenadaPivo) == 0){
-                    coordenadaPivo--;
                 }
 
             }
             
-            if(coordenadaPivo < aux3){
-                aux3 = coordenadaPivo;
-                aux2 = coordenadaPivo + 1;
+            if(pivotCoordinate < aux3){
+                aux3 = pivotCoordinate;
+                aux2 = pivotCoordinate + 1;
             }
         }
 
@@ -340,6 +341,9 @@ class LinearAlgebra{
             }
         }
 
+        console.log("solve end");
+        console.timeLog();
+        console.timeEnd()
         return vet;
         
     }
@@ -355,13 +359,13 @@ class LinearAlgebra{
         }
 
         let c = this.gauss(a);
-        let determinante = 1;
+        let determinant = 1;
 
         for(let i = 1; i <= c.rows; i++){
-            determinante *= c.get(i, i);
+            determinant *= c.get(i, i);
         }
 
-        return determinante;
+        return determinant;
     }
 
     gaussJordanInv(a){
@@ -372,7 +376,7 @@ class LinearAlgebra{
 
         let c = new Matrix(a.rows, a.cols);
         let k;
-        let coordenadaPivo = c.rows;
+        let pivotCoordinate = c.rows;
         let aux2 = c.rows;
         let aux3 = c.rows;
 
@@ -381,39 +385,39 @@ class LinearAlgebra{
 
         for(aux2; aux2 > 1; aux2--){
 
-            if(c.get(coordenadaPivo, coordenadaPivo) == 0){
-                c = this.trocaLinha(c);
+            if(c.get(pivotCoordinate, pivotCoordinate) == 0){
+                c = this.switchLine(c);
             }
 
-            if(c.get(aux2 - 1, coordenadaPivo) != 0){
+            if(c.get(aux2 - 1, pivotCoordinate) != 0){
 
-                if(aux2 - 1 == 1 && c.get(aux2 - 1, coordenadaPivo) != 0){
-                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                if(aux2 - 1 == 1 && c.get(aux2 - 1, pivotCoordinate) != 0){
+                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(pivotCoordinate,pivotCoordinate));
                     
                     for(let j = 1; j <= c.cols; j++){
         
-                        c.set(aux2 - 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 - 1, j));
+                        c.set(aux2 - 1, j, k * c.get(pivotCoordinate, j) + c.get(aux2 - 1, j));
         
                     }
 
-                    coordenadaPivo--;
-                }else if(aux2 - 1 > 1 && c.get(aux2 - 1, coordenadaPivo) != 0){
-                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(coordenadaPivo,coordenadaPivo));
+                    pivotCoordinate--;
+                }else if(aux2 - 1 > 1 && c.get(aux2 - 1, pivotCoordinate) != 0){
+                    k = -1 * (c.get(aux2 - 1, aux3) / c.get(pivotCoordinate,pivotCoordinate));
                     
                     for(let j = 1; j <= c.cols; j++){
         
-                        c.set(aux2 - 1, j, k * c.get(coordenadaPivo, j) + c.get(aux2 - 1, j));
+                        c.set(aux2 - 1, j, k * c.get(pivotCoordinate, j) + c.get(aux2 - 1, j));
         
                     }
-                }else if(aux2 - 1 == 1 && c.get(aux2 - 1, coordenadaPivo) == 0){
-                    coordenadaPivo--;
+                }else if(aux2 - 1 == 1 && c.get(aux2 - 1, pivotCoordinate) == 0){
+                    pivotCoordinate--;
                 }
 
             }
             
-            if(coordenadaPivo < aux3){
-                aux3 = coordenadaPivo;
-                aux2 = coordenadaPivo + 1;
+            if(pivotCoordinate < aux3){
+                aux3 = pivotCoordinate;
+                aux2 = pivotCoordinate + 1;
             }
         }
 
@@ -450,13 +454,13 @@ class LinearAlgebra{
                 intm.set(i, j, a.get(i, j));
             }
 
-            let contador = 1;
+            let counter = 1;
 
             for(let w = (intm.cols / 2) + 1; w <= intm.cols; w++){
                 
-                intm.set(i, w, id.get(i, contador));
+                intm.set(i, w, id.get(i, counter));
 
-                contador++;
+                counter++;
             }
 
         }
@@ -465,12 +469,12 @@ class LinearAlgebra{
 
         for(let i = 1; i <= c.rows; i++){
 
-            let contador = (intm.cols / 2) + 1;
+            let counter = (intm.cols / 2) + 1;
 
             for(let j = 1; j <= c.cols; j++){
-                inv.set(i, j, intm.get(i, contador));
+                inv.set(i, j, intm.get(i, counter));
 
-                contador++;
+                counter++;
             }
         }
          
