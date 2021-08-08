@@ -42,8 +42,8 @@ main{
 #infos{
     display: flex;
     align-items: center;
-    width: 150px;
-    padding-right: 110px;
+    width: 180px;
+    padding-right: 80px;
     padding-left: 50px;
 }
 
