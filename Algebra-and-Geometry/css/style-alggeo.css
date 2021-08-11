@@ -28,6 +28,49 @@ header h2{
     margin-right: 10px;
 }
 
+#switchPageButton{
+    background-color: #e65c00;
+    color: #ffffff;
+    font-size: medium;
+    border: 2px solid #e65c00;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+#switchPageButton:hover{
+    background-color: #ffffff;
+    color: #e65c00;
+}
+
+input[type = 'file']{
+    display: none;
+}
+
+label{
+    background-color: #ff6666;
+    color: #ffffff;
+    font-size: medium;
+    border: 2px solid #ff6666;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+label:hover{
+    background-color: #ffffff;
+    color: #ff6666;
+}
+
 main{
     border: 3px solid #da3434;
     border-radius: 8px;
@@ -76,47 +119,4 @@ main{
     background-color: #747474;
     border-radius: 8px;
     border: 1px solid #cecece;
-}
-
-#switchPageButton{
-    background-color: #e65c00;
-    color: #ffffff;
-    font-size: medium;
-    border: 2px solid #e65c00;
-    border-radius: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    transition-duration: 0.3s;
-    cursor: pointer;
-}
-
-#switchPageButton:hover{
-    background-color: #ffffff;
-    color: #e65c00;
-}
-
-input[type = 'file']{
-    display: none;
-}
-
-label{
-    background-color: #ff6666;
-    color: #ffffff;
-    font-size: medium;
-    border: 2px solid #ff6666;
-    border-radius: 10px;
-    margin-left: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    transition-duration: 0.3s;
-    cursor: pointer;
-}
-
-label:hover{
-    background-color: #ffffff;
-    color: #ff6666;
 }
