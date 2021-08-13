@@ -1,5 +1,7 @@
 # Architecture
 
+>Note: This file is subject to change.
+
 File tree
 
 - [Algebra-and-Geometry/](#algebra-and-geometry)
@@ -35,8 +37,16 @@ In this folder are the libraries of geometric shapes created by me and the libra
 
 ## `web/`
 
+Here will be the entire web system responsible for capturing the data that the user passes, for making the calculations and returning the results to the client.
 
+### `client/`
+
+Usually this folder is where the files responsible for getting the data that the user passes and also for manipulating DOM elements are located.
+
+### `server/`
+
+Here are the files responsible for receiving the requests and making the necessary calculations.
 
 ## `css/`
 
-
+Here are the files responsible for styling the HTML pages.
