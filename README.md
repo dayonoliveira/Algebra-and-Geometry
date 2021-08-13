@@ -1,8 +1,19 @@
+English | [Portuguese](README_ptbr.md)
+
 # Algebra and Geometry
 
 The system aims to solve linear algebra problems and also, through the [P5JS](https://p5js.org/) library, to create different geometric shapes.
 
 >Note: The system is still under development as I have been working on it recently. I have some ideas to put on the two pages but for now I'm focusing on organizing the code and a few other things.
+
+### Summary
+- [Architecture](#architecture)
+- [About linear algebra problems](#about-linear-algebra-problems)
+- [About geometric shapes](#about-geometric-shapes)
+
+## Architecture
+
+The project's file and folder architecture is well divided. It can be found in the file [architecture.md](architecture.md), where there is the division of folders and what files each folder contains.
 
 ## About linear algebra problems
 

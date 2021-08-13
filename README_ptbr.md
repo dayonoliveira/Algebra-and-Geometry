@@ -1,8 +1,19 @@
+[Inglês](README.md) | Português
+
 # Álgebra e Geometria
 
 O sistema visa resolver problemas de álgebra linear e também, através da biblioteca [P5JS](https://p5js.org/), criar diferentes formas geométricas.
 
 >Nota: O sistema ainda está em desenvolvimento pois voltei a mexer nele recentemente. Tenho algumas ideias para colocar nas duas páginas mas por enquanto estou focando em organizar o código e algumas outras coisas.
+
+### Sumário
+- [Arquitetura](#arquitetura)
+- [Sobre problemas de álgebra linear](#sobre-problemas-de-álgebra-linear)
+- [Sobre formas geométricas](#sobre-formas-geométricas)
+
+## Arquitetura
+
+A arquitetura de pastas e arquivos do projeto está bem dividida. Ela pode ser encontrada no arquivo [architecture.md](architecture.md), onde tem a divisão de pastas e quais arquivos cada pasta contém.
 
 ## Sobre problemas de álgebra linear
 
