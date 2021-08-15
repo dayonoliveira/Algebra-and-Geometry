@@ -1,3 +1,6 @@
+let Matrix = require("./matrix.js")
+let Vector = require("./vector.js")
+
 class LinearAlgebra{
     
     
@@ -213,7 +216,6 @@ class LinearAlgebra{
 
         return c
     }
-
 
     gauss(a){
         console.log("gauss begin");
@@ -481,3 +483,5 @@ class LinearAlgebra{
         return inv;
     }
 }
+
+module.exports = LinearAlgebra

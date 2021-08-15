@@ -1,3 +1,5 @@
+let Matrix = require("./matrix.js")
+
 class Vector extends Matrix{
 
     constructor(dim, elements){
@@ -21,3 +23,5 @@ class Vector extends Matrix{
         }
     }
 }
+
+module.exports = Vector
