@@ -12,6 +12,39 @@
 <body>
     
     <header>
+        <div id="menuButton">
+            <img class="bars" src="css\img\bars.svg" alt="menu">
+        </div>
+        <div id="menu">
+            <div id="menuHeader">
+                <div>Methods List</div>
+                <img class="close" src="css\img\times.svg" alt="close">
+            </div>
+            <div class="menuItem" id="determinant">
+                <div>Determinant</div>
+            </div>
+            <div class="menuItem" id="dot">
+                <div>Dot</div>
+            </div>
+            <div class="menuItem" id="inverse">
+                <div>Inverse</div>
+            </div>
+            <div class="menuItem" id="gauss">
+                <div>Gauss</div>
+            </div>
+            <div class="menuItem" id="gaussJordan">
+                <div>Gauss-Jordan</div>
+            </div>
+            <div class="menuItem" id="sum">
+                <div>Sum</div>
+            </div>
+            <div class="menuItem" id="times">
+                <div>Times</div>
+            </div>
+            <div class="menuItem" id="transpose">
+                <div>Transpose</div>
+            </div>
+        </div>
         <div id="pageTitle">
             <h2>Linear Algebra</h2>
         </div>
@@ -19,10 +52,10 @@
             <div id="switchPage">
                 <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
             </div>
-            <div id="chooseFile">
+            <!-- <div id="chooseFile">
                 <label for="userFiles">Open file</label>
                 <input id="userFiles" type="file">
-            </div>
+            </div> -->
         </div>
     </header>
     <main>
@@ -47,6 +80,14 @@
         function goToP5JS(){
             window.location.href = "p5js-screen.html";
         }
+        $(()=>{
+            $("#menuButton").on("click", ()=>{
+                $("#menu").animate({width: "200px"}, "fast", "linear");
+            })
+            $(".close").on("click", ()=>{
+                $("#menu").animate({width: "0px"}, "fast", "linear");
+            })
+        })
     </script>
 
     <script src="web/client/data-manipulation.js"></script>
