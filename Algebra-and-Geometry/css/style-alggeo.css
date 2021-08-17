@@ -26,7 +26,7 @@ header h2{
     background-color: #6892FF;
     width: 50px;
     height: 50px;
-    margin-right: 72px;
+    margin-right: 138px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,9 +93,9 @@ header h2{
 }
 
 #buttons{
-    width: 122px;
     display: flex;
     align-items: center;
+    margin-left: 122px;
     margin-right: 10px;
 }
 
@@ -103,10 +103,14 @@ header h2{
     background-color: #e65c00;
     color: #ffffff;
     font-size: medium;
+    width: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #e65c00;
     border-radius: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 4px;
     padding-bottom: 4px;
     transition-duration: 0.3s;
@@ -143,14 +147,42 @@ label:hover{
 }
 
 main{
-    border: 3px solid #da3434;
-    border-radius: 8px;
+    /* border: 3px solid #da3434;
+    border-radius: 8px; 
+    display: block;
+    width: min-content;
+    margin-left: calc(50% - 452px);
+    padding: 30px;*/
+    color: #ffffff;
+    margin-top: 3%;
+
+}
+
+#subtitle{
     display: flex;
     justify-content: center;
-    width: min-content;
-    margin-top: 10%;
-    margin-left: calc(50% - 452px);
-    padding: 30px;
+    margin-bottom: 8%;
+}
+
+#stepsArea{
+    display: flex;
+    justify-content: center;
+
+}
+
+.steps{
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.circles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87A9FF;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
 }
 
 #infos{
