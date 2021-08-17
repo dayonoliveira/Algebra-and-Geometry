@@ -204,7 +204,7 @@ main{
     justify-content: center;
     width: 160px;
     height: 200px;
-    word-break: break-all;
+    word-break: inherit;
 }
 
 .stepText p{
