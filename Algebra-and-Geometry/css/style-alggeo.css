@@ -171,8 +171,15 @@ main{
 }
 
 .steps{
-    margin-left: 12%;
-    margin-right: 12%;
+    width: 160px;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block;
+}
+.circleArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .circles{
@@ -183,6 +190,24 @@ main{
     width: 60px;
     height: 60px;
     border-radius: 50px;
+}
+
+.stepTextArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stepText{
+    display: flex;
+    justify-content: center;
+    width: 160px;
+    height: 200px;
+    word-break: break-all;
+}
+
+.stepText p{
+    text-align: center;
 }
 
 #infos{
