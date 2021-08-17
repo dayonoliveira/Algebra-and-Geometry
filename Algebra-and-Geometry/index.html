@@ -50,7 +50,7 @@
         </div>
         <div id="buttons">
             <div id="switchPage">
-                <input type="button" value="Switch to P5JS" id="switchPageButton" onclick="goToP5JS()">
+                <input type="button" value="P5JS" id="switchPageButton" onclick="goToP5JS()">
             </div>
             <!-- <div id="chooseFile">
                 <label for="userFiles">Open file</label>
@@ -59,7 +59,29 @@
         </div>
     </header>
     <main>
-        <div id="infos">
+        <div id="subtitle">
+            <div>
+                This site is intended to perform linear algebra calculations
+            </div>
+        </div>
+        <div id="stepsArea">
+            <div class="steps" id="step1">
+                <div class="circles">
+                    1
+                </div>
+            </div>
+            <div class="steps" id="step2">
+                <div class="circles">
+                    2
+                </div>
+            </div>
+            <div class="steps" id="step3">
+                <div class="circles">
+                    3
+                </div>
+            </div>
+        </div>
+        <!-- <div id="infos">
             <div>
                 <h2 id="operation">Gauss-Jordan</h2>
                 <h4 id="exeTime">Exe. time (ms):</h4>
@@ -73,7 +95,7 @@
             <div>
                 <textarea disabled class="textarea" id="textarea2" cols="30" rows="20" placeholder="Result"></textarea>
             </div>
-        </div>
+        </div> -->
     </main>
     
     <script>
