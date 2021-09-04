@@ -50,7 +50,7 @@
         </div>
         <div id="buttons">
             <div id="switchPage">
-                <input type="button" value="P5JS" id="switchPageButton" onclick="goToP5JS()">
+                <input type="button" value="P5JS" id="switchPageButton">
             </div>
             <!-- <div id="chooseFile">
                 <label for="userFiles">Open file</label>
@@ -120,9 +120,6 @@
     </main>
     
     <script>
-        function goToP5JS(){
-            window.location.href = "p5js-screen.html";
-        }
         $(()=>{
             $("#menuButton").on("click", ()=>{
                 $("#menu").animate({width: "200px"}, "fast", "linear");
@@ -135,5 +132,6 @@
 
     <script src="../web/client/data-manipulation.js"></script>
     <script src="../web/client/file-reader.js"></script>
+    <script src="../web/client/page-handler.js"></script>
 </body>
 </html>
