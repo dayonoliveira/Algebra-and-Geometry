@@ -123,40 +123,9 @@ header h2{
     color: #e65c00;
 }
 
-/* input[type = 'file']{
-    display: none;
-}
-
-label{
-    background-color: #ff6666;
-    color: #ffffff;
-    font-size: medium;
-    border: 2px solid #ff6666;
-    border-radius: 10px;
-    margin-left: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    transition-duration: 0.3s;
-    cursor: pointer;
-}
-
-label:hover{
-    background-color: #ffffff;
-    color: #ff6666;
-} */
-
 main{
-    /* border: 3px solid #da3434;
-    border-radius: 8px; 
-    display: block;
-    width: min-content;
-    margin-left: calc(50% - 452px);
-    padding: 30px;*/
     color: #ffffff;
     margin-top: 3%;
-
 }
 
 #subtitle{
@@ -212,42 +181,39 @@ main{
     text-align: center;
 }
 
-#infos{
-    color: #f6f6f6;
+#switchInputMode{
     display: flex;
-    align-items: center;
-    width: 180px;
-    padding-right: 80px;
-    padding-left: 50px;
 }
 
-.textarea{
-    background-color: rgb(65, 65, 65);
-    color: #f19151;
-    width: 520px;
-    height: 200px;
-    border-width: 2px;
-    border-color: rgb(207, 206, 206);
-    border-radius: 5px;
+.choice{
+    color: #ffffff;
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid #D2D2D2;
 }
 
-.textarea:focus{
-    border-color: rgb(224, 224, 224);
-    outline:none;
-    box-shadow:none;
+#fileChoice{
+    background-color: #628EFF;
+    border-right-width: 1px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
-.textarea::-webkit-scrollbar{
-    width: 10px;
-    height: 10px;
+#manualChoice{
+    background-color: #8D8D8D;
+    border-left-width: 1px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-.textarea::-webkit-scrollbar-track{
-    background-color: #cecece;
-}
-
-.textarea::-webkit-scrollbar-thumb{
-    background-color: #747474;
+#dragAndDropArea{
+    background-color: #A4BDFF;
+    width: 650px;
+    height: 220px;
     border-radius: 8px;
-    border: 1px solid #cecece;
+    border: 1px solid #FF4545;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
