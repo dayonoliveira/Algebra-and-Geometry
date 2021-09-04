@@ -50,7 +50,9 @@ $(()=>{
 
     // Redirection to drag and drop tutorial.
 
-
+    $("#dadTutorialLink").on("click", ()=>{
+        $(location).attr("href", "tutorial-dad.html")
+    })
 
     // Redirection to manual data entry tutorial.
 
