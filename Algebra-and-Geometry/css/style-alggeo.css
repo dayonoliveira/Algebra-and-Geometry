@@ -20,6 +20,7 @@ header h2{
     padding-bottom: 3px;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+    cursor: pointer;
 }
 
 #menuButton{
@@ -122,7 +123,7 @@ header h2{
     color: #e65c00;
 }
 
-input[type = 'file']{
+/* input[type = 'file']{
     display: none;
 }
 
@@ -144,7 +145,7 @@ label{
 label:hover{
     background-color: #ffffff;
     color: #ff6666;
-}
+} */
 
 main{
     /* border: 3px solid #da3434;
