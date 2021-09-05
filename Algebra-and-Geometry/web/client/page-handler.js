@@ -1,5 +1,4 @@
 $(()=>{
-
     // Switch to P5JS page.
 
     $("#switchPageButton").on("click", ()=>{
@@ -9,35 +8,35 @@ $(()=>{
     // Sidebar options redirects.
 
     $("#determinant").on("click", ()=>{
-        $(location).attr("href", "method-dad.html");
+        $("main").load("method-dad.html #methodDadMainContentDeterminant");
     })
 
     $("#dot").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentDot");
     })
 
     $("#inverse").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentInverse");
     })
 
     $("#gauss").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentGauss");
     })
 
     $("#gaussJordan").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentGaussJordan");
     })
 
     $("#sum").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentSum");
     })
 
     $("#times").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentTimes");
     })
 
     $("#transpose").on("click", ()=>{
-        $(location).attr("href", "method-dad.html")
+        $("main").load("method-dad.html #methodDadMainContentTranspose");
     })
 
     // Manual option redirection.
