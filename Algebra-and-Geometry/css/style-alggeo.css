@@ -125,7 +125,7 @@ header h2{
 
 main{
     color: #ffffff;
-    margin-top: 3%;
+    padding-top: 3%;
 }
 
 #subtitle{
@@ -181,7 +181,7 @@ main{
     text-align: center;
 }
 
-#methodDadMainContent{
+.methodDadMainContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
