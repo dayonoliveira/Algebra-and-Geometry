@@ -55,7 +55,7 @@
         </div>
     </header>
     <main>
-        <div id="subtitle">
+        <div class="subtitle" id="subtitle">
             <div>
                 This site is intended to perform linear algebra calculations
             </div>
@@ -105,9 +105,10 @@
             $("#menuButton").on("click", ()=>{
                 $("#menu").animate({width: "200px"}, "fast", "linear");
             })
-            $(".close").on("click", ()=>{
+            $(".close, main, #pageTitle, #buttons").on("click", ()=>{
                 $("#menu").animate({width: "0px"}, "fast", "linear");
             })
+            
         })
     </script>
 
