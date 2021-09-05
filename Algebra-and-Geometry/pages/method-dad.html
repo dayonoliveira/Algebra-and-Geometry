@@ -1,95 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');</style>
-    <link rel="stylesheet" href="../css/style-alggeo.css">
-    <script src="../web/node_modules/jquery/dist/jquery.js"></script>
-    <title>Linear Algebra</title>
-</head>
-<body>
-    
-    <header>
-        <div id="menuButton">
-            <img class="bars" src="../css/img/bars.svg" alt="menu">
+<div class="methodDadMainContent" id="methodDadMainContentDeterminant">
+    <div class="subtitle" id="method">Determinant</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
         </div>
-        <div id="menu">
-            <div id="menuHeader">
-                <div>Methods List</div>
-                <img class="close" src="../css/img/times.svg" alt="close">
-            </div>
-            <div class="menuItem" id="determinant">
-                <div>Determinant</div>
-            </div>
-            <div class="menuItem" id="dot">
-                <div>Dot</div>
-            </div>
-            <div class="menuItem" id="inverse">
-                <div>Inverse</div>
-            </div>
-            <div class="menuItem" id="gauss">
-                <div>Gauss</div>
-            </div>
-            <div class="menuItem" id="gaussJordan">
-                <div>Gauss-Jordan</div>
-            </div>
-            <div class="menuItem" id="sum">
-                <div>Sum</div>
-            </div>
-            <div class="menuItem" id="times">
-                <div>Times</div>
-            </div>
-            <div class="menuItem" id="transpose">
-                <div>Transpose</div>
-            </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
         </div>
-        <div id="pageTitle">
-            <h2>Linear Algebra</h2>
-        </div>
-        <div id="buttons">
-            <div id="switchPage">
-                <input type="button" value="P5JS" id="switchPageButton">
-            </div>
-            <!-- <div id="chooseFile">
-                <label for="userFiles">Open file</label>
-                <input id="userFiles" type="file">
-            </div> -->
-        </div>
-    </header>
-    <main>
-        <div id="methodDadMainContent">
-            <div id="method">...</div>
-            <div id="switchInputMode">
-                <div>
-                    <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
-                </div>
-            </div>
-            <div id="explanation">
-                Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
-            </div>
-            <div id="dragAndDropContainer">
-                <div id="dragAndDropArea">
-                    Drop your file here
-                </div>
-            </div>
-        </div>
-    </main>
-    
-    <script>
-        $(()=>{
-            $("#menuButton").on("click", ()=>{
-                $("#menu").animate({width: "200px"}, "fast", "linear");
-            })
-            $(".close").on("click", ()=>{
-                $("#menu").animate({width: "0px"}, "fast", "linear");
-            })
-        })
-    </script>
+    </div>
+</div>
 
-    <script src="../web/client/data-manipulation.js"></script>
-    <script src="../web/client/file-reader.js"></script>
-    <script src="../web/client/page-handler.js"></script>
-</body>
-</html>
+<div class="methodDadMainContent" id="methodDadMainContentDot">
+    <div class="subtitle" id="method">Dot</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
+
+<div class="methodDadMainContent" id="methodDadMainContentInverse">
+    <div class="subtitle" id="method">Inverse</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
+
+<div class="methodDadMainContent" id="methodDadMainContentGauss">
+    <div class="subtitle" id="method">Gauss</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
+
+<div class="methodDadMainContent" id="methodDadMainContentGaussJordan">
+    <div class="subtitle" id="method">Gauss-Jordan</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
+
+<div class="methodDadMainContent" id="methodDadMainContentSum">
+    <div class="subtitle" id="method">Sum</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
+
+<div class="methodDadMainContent" id="methodDadMainContentTimes">
+    <div class="subtitle" id="method">Times</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
+
+<div class="methodDadMainContent" id="methodDadMainContentTranspose">
+    <div class="subtitle" id="method">Transpose</div>
+    <div id="switchInputMode">
+        <div>
+            <button type="button" class="choice" id="manualChoice">Switch to manual input</button>
+        </div>
+    </div>
+    <div id="explanation">
+        Put your matrix in a .txt or .m file, drag the file to the indicated area and the calculation will be done. <span id="dadTutorialLink">Here's an exemple</span>.
+    </div>
+    <div id="dragAndDropContainer">
+        <div id="dragAndDropArea">
+            Drop your file here
+        </div>
+    </div>
+</div>
