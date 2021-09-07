@@ -181,7 +181,7 @@ main{
     text-align: center;
 }
 
-.methodDadMainContent, .methodManualMainContent{
+.methodDadMainContent, .methodManualMainContent, .methodTwoManualMainContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -269,22 +269,40 @@ main{
     transition-duration: 0.2s;
 }
 
-#manualInputArea:focus{
+#twoManualInputContainer{
+    display: flex;
+    
+}
+
+.twoManualInputArea{
+    background-color: rgb(65, 65, 65);
+    color: #f19151;
+    width: 260px;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 2px;
+    border-color: #FFA0A0;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+#manualInputArea:focus, .twoManualInputArea:focus{
     border-color: #f66d6d;
     outline:none;
     box-shadow:none;
 }
 
-#manualInputArea::-webkit-scrollbar{
+#manualInputArea::-webkit-scrollbar, .twoManualInputArea::-webkit-scrollbar{
     width: 10px;
     height: 10px;
 }
 
-#manualInputArea::-webkit-scrollbar-track{
+#manualInputArea::-webkit-scrollbar-track, .twoManualInputArea::-webkit-scrollbar-track{
     background-color: #cecece;
 }
 
-#manualInputArea::-webkit-scrollbar-thumb{
+#manualInputArea::-webkit-scrollbar-thumb, .twoManualInputArea::-webkit-scrollbar-thumb{
     background-color: #747474;
     border-radius: 8px;
     border: 1px solid #cecece;
