@@ -181,14 +181,14 @@ main{
     text-align: center;
 }
 
-.methodDadMainContent{
+.methodDadMainContent, .methodManualMainContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#method{
+#dadMethod, #manualMethod{
     margin-bottom: 3%;
 }
 
@@ -201,19 +201,20 @@ main{
     margin-bottom: 3%;
 }
 
-#dadTutorialLink{
+#dadTutorialLink, #manualTutorialLink{
     color: #A4BDFF;
     text-decoration: underline;
     transition-duration: 0.2s;
 }
 
-#dadTutorialLink:hover{
+#dadTutorialLink:hover, #manualTutorialLink:hover{
     color: #d3dfff;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.choice{
+.fileChoice{
+    background-color: #628EFF;
     color: #ffffff;
     font-size: 18px;
     width: 300px;
@@ -224,15 +225,23 @@ main{
     transition-duration: 0.3s;
 }
 
-#fileChoice{
-    background-color: #628EFF;
+.fileChoice:hover{
+    background-color: #2e5dd3;
 }
 
-#manualChoice{
+.manualChoice{
     background-color: #8D8D8D;
+    color: #ffffff;
+    font-size: 18px;
+    width: 300px;
+    height: 40px;
+    border: 2px solid #D2D2D2;
+    border-radius: 25px;
+    cursor: pointer;
+    transition-duration: 0.3s;
 }
 
-#manualChoice:hover{
+.manualChoice:hover{
     background-color: #575757;
 }
 
@@ -247,4 +256,36 @@ main{
     align-items: center;
     font-size: 25px;
     color: #8C8C8C;
+}
+
+#manualInputArea{
+    background-color: rgb(65, 65, 65);
+    color: #f19151;
+    width: 520px;
+    height: 200px;
+    border-width: 2px;
+    border-color: #FFA0A0;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+#manualInputArea:focus{
+    border-color: #f66d6d;
+    outline:none;
+    box-shadow:none;
+}
+
+#manualInputArea::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+
+#manualInputArea::-webkit-scrollbar-track{
+    background-color: #cecece;
+}
+
+#manualInputArea::-webkit-scrollbar-thumb{
+    background-color: #747474;
+    border-radius: 8px;
+    border: 1px solid #cecece;
 }
